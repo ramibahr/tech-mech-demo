@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech-Mech | Technical &amp; Mechanical Automotive Services</title>
+  <meta name="description" content="Tech-Mech — reliable automotive repair and maintenance. Engine diagnostics, brake services, servicing and more. Transparent pricing, experienced mechanics." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:        #e01e24;
+      --red-dark:   #b01820;
+      --red-glow:   rgba(224, 30, 36, 0.18);
+      --bg:         #0d0d0d;
+      --bg-card:    #171717;
+      --bg-alt:     #111111;
+      --border:     #242424;
+      --white:      #ffffff;
+      --grey:       #9a9a9a;
+      --grey-light: #cccccc;
+      --announce-h: 36px;
+      --nav-h:      76px;
+      --radius:     10px;
+      --font-head:  'Oswald', sans-serif;
+      --font-logo:  'Barlow Condensed', sans-serif;
+      --font-body:  'Inter', sans-serif;
+      --transition: 0.3s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img { display: block; width: 100%; object-fit: cover; }
+    a   { color: inherit; text-decoration: none; }
+    ul  { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.08;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .section-title span { color: var(--red); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(224,30,36,0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .btn-outline:hover {
+      border-color: var(--red);
+      color: var(--red);
+      transform: translateY(-2px);
+    }
+
+    /* ─── Logo Mark ─────────────────────────────────────────── */
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      background: #000;
+      padding: 6px 12px 6px 8px;
+      border-radius: 6px;
+    }
+
+    .logo-slash {
+      font-family: var(--font-logo);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+      letter-spacing: -2px;
+      flex-shrink: 0;
+    }
+
+    .logo-text-wrap {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      gap: 2px;
+    }
+
+    .logo-primary {
+      font-family: var(--font-logo);
+      font-size: 15px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--white);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .logo-secondary {
+      font-family: var(--font-logo);
+      font-size: 10px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    /* ─── Announce Bar ──────────────────────────────────────── */
+    .announce-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 101;
+      height: var(--announce-h);
+      background: #1a0809;
+      border-bottom: 1px solid rgba(224,30,36,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+    }
+    .announce-inner {
+      display: flex;
+      align-items: center;
+      font-family: var(--font-body);
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.72);
+      white-space: nowrap;
+      gap: 0;
+    }
+    .announce-inner a {
+      color: var(--white);
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    .announce-inner a:hover { color: var(--red); }
+    .announce-sep {
+      margin: 0 14px;
+      color: rgba(255,255,255,0.22);
+    }
+    @media (max-width: 600px) {
+      .announce-inner { font-size: 10px; }
+      .announce-sep { margin: 0 8px; }
+      .announce-hours { display: none; }
+    }
+
+    /* ─── Nav ───────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: var(--announce-h); left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--red); }
+
+    .nav-cta {
+      padding: 10px 22px;
+      font-size: 12px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: calc(var(--announce-h) + var(--nav-h));
+      left: 0; right: 0;
+      background: #0f0f0f;
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-head);
+      font-size: 15px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      padding: 16px 28px;
+      border-bottom: 1px solid var(--border);
+      transition: color var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--red); }
+
+    /* ─── Hero ──────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100svh;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: calc(var(--announce-h) + var(--nav-h));
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      filter: brightness(0.28);
+      transform: scale(1.04);
+      transition: transform 10s ease;
+    }
+    #hero:hover .hero-bg { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(150deg, rgba(13,13,13,0.75) 0%, rgba(224,30,36,0.06) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(224,30,36,0.12);
+      border: 1px solid rgba(224,30,36,0.35);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-family: var(--font-head);
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(1.5); }
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(3rem, 9vw, 6rem);
+      font-weight: 700;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+    .hero-title span { color: var(--red); }
+
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--grey-light);
+      max-width: 540px;
+      margin-bottom: 44px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 0;
+      left: 0; right: 0;
+      z-index: 2;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+    }
+
+    .hero-stat {
+      flex: 1;
+      text-align: center;
+      padding: 24px 16px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .hero-stat:last-child { border-right: none; }
+
+    .hero-stat-num {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-top: 6px;
+    }
+
+    /* ─── About ─────────────────────────────────────────────── */
+    #about {
+      padding: 120px 0;
+      background: var(--bg-alt);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text-col {}
+
+    .about-body {
+      font-size: 16px;
+      color: var(--grey-light);
+      line-height: 1.8;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    .about-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .about-pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .about-pillar-icon {
+      width: 36px; height: 36px;
+      background: var(--red-glow);
+      border: 1px solid rgba(224,30,36,0.3);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--red);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .about-pillar-icon svg { width: 16px; height: 16px; }
+
+    .about-pillar-title {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .about-pillar-desc {
+      font-size: 13px;
+      color: var(--grey);
+      line-height: 1.6;
+    }
+
+    .about-image-col {
+      position: relative;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 520px;
+    }
+    .about-img-wrap img {
+      height: 100%;
+      filter: brightness(0.8);
+      transition: transform 0.6s ease;
+    }
+    .about-img-wrap:hover img { transform: scale(1.04); }
+
+    .about-img-badge {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+    }
+    .about-img-badge-num {
+      font-family: var(--font-head);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+    }
+    .about-img-badge-label {
+      font-size: 11px;
+      color: var(--grey);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ─── Services ──────────────────────────────────────────── */
+    #services {
+      padding: 120px 0;
+      background: var(--bg);
+    }
+
+    .services-header {
+      max-width: 600px;
+      margin-bottom: 64px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 30px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 3px;
+      background: var(--red);
+      transition: width 0.45s ease;
+    }
+    .service-card:hover {
+      border-color: rgba(224,30,36,0.35);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+    }
+    .service-card:hover::after { width: 100%; }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      background: var(--red-glow);
+      border: 1px solid rgba(224,30,36,0.3);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      color: var(--red);
+    }
+    .service-icon svg { width: 26px; height: 26px; }
+
+    .service-name {
+      font-family: var(--font-head);
+      font-size: 19px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .service-desc {
+      font-size: 14px;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+
+    /* ─── Gallery ───────────────────────────────────────────── */
+    #gallery {
+      padding: 120px 0;
+      background: var(--bg-alt);
+    }
+
+    .gallery-header {
+      max-width: 560px;
+      margin-bottom: 64px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      height: 100%;
+      transition: transform 0.55s ease, filter 0.3s ease;
+      filter: brightness(0.82);
+    }
+    .gallery-item:hover img { transform: scale(1.07); filter: brightness(1); }
+
+    .gallery-item:nth-child(1) { grid-column: span 7; height: 380px; }
+    .gallery-item:nth-child(2) { grid-column: span 5; height: 380px; }
+    .gallery-item:nth-child(3) { grid-column: span 4; height: 260px; }
+    .gallery-item:nth-child(4) { grid-column: span 4; height: 260px; }
+    .gallery-item:nth-child(5) { grid-column: span 4; height: 260px; }
+    .gallery-item:nth-child(6) { grid-column: span 12; height: 260px; }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(224,30,36,0);
+      transition: background 0.3s ease;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gallery-item:hover .gallery-overlay { background: rgba(224,30,36,0.10); }
+
+    .gallery-zoom {
+      width: 46px; height: 46px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: var(--transition);
+    }
+    .gallery-zoom svg { width: 18px; height: 18px; color: white; }
+    .gallery-item:hover .gallery-zoom { opacity: 1; transform: scale(1); }
+
+    /* ─── Reviews ───────────────────────────────────────────── */
+    #reviews {
+      padding: 120px 0;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    #reviews::before {
+      content: '\201C';
+      position: absolute;
+      top: -20px; right: -10px;
+      font-size: 360px;
+      font-family: var(--font-head);
+      color: rgba(224,30,36,0.04);
+      line-height: 1;
+      pointer-events: none;
+      select: none;
+    }
+
+    .reviews-header {
+      max-width: 560px;
+      margin-bottom: 64px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .review-card:hover {
+      border-color: rgba(224,30,36,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+    }
+
+    .review-stars {
+      color: #f59e0b;
+      font-size: 17px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .review-quote {
+      font-size: 15px;
+      color: var(--grey-light);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .review-quote::before { content: '\201C'; }
+    .review-quote::after  { content: '\201D'; }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .review-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--red-glow);
+      border: 2px solid var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: var(--red);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .review-source {
+      font-size: 12px;
+      color: var(--grey);
+      margin-top: 3px;
+    }
+
+    /* ─── Contact ───────────────────────────────────────────── */
+    #contact {
+      padding: 120px 0;
+      background: var(--bg-alt);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info p {
+      color: var(--grey);
+      font-size: 15px;
+      margin-top: 16px;
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding: 18px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .contact-detail:hover { border-color: rgba(224,30,36,0.35); }
+
+    .contact-detail-icon {
+      width: 40px; height: 40px;
+      background: var(--red-glow);
+      border: 1px solid rgba(224,30,36,0.3);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+    .contact-detail-icon svg { width: 17px; height: 17px; }
+
+    .contact-detail-label {
+      font-size: 10px;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 3px;
+    }
+    .contact-detail-text {
+      font-size: 14px;
+      color: var(--grey-light);
+    }
+
+    .contact-form-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 44px 40px;
+    }
+
+    .form-title {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .form-subtitle {
+      font-size: 14px;
+      color: var(--grey);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .simplybook-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(224,30,36,0.07);
+      border: 1px solid rgba(224,30,36,0.22);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 12px;
+      color: rgba(224,30,36,0.9);
+      letter-spacing: 0.3px;
+      margin-bottom: 28px;
+    }
+    .simplybook-note svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+      resize: vertical;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #484848; }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(224,30,36,0.1);
+    }
+
+    .form-group textarea { min-height: 130px; }
+
+    .form-submit {
+      width: 100%;
+      justify-content: center;
+      margin-top: 4px;
+      padding: 16px;
+      font-size: 14px;
+    }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    footer {
+      background: #070707;
+      border-top: 1px solid var(--border);
+      padding: 64px 0 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand .logo-mark {
+      margin-bottom: 20px;
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      color: var(--grey);
+      line-height: 1.75;
+      max-width: 300px;
+      margin-bottom: 28px;
+    }
+
+    .footer-contact-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .footer-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.10);
+      border-color: rgba(37,211,102,0.35);
+      color: #25d366;
+    }
+    .btn-whatsapp:hover {
+      background: #25d366;
+      border-color: #25d366;
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.28);
+    }
+
+    .btn-phone {
+      background: var(--red-glow);
+      border-color: rgba(224,30,36,0.35);
+      color: var(--red);
+    }
+    .btn-phone:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(224,30,36,0.32);
+    }
+
+    .footer-col-title {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-links li { margin-bottom: 12px; }
+    .footer-links a {
+      font-size: 14px;
+      color: var(--grey);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--red); }
+
+    .footer-hours li {
+      font-size: 13px;
+      color: var(--grey);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .footer-hours span { color: var(--grey-light); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--grey);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-legal a {
+      font-size: 12px;
+      color: var(--grey);
+      transition: color var(--transition);
+    }
+    .footer-legal a:hover { color: var(--white); }
+
+    /* ─── Scroll Top ────────────────────────────────────────── */
+    #scroll-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px; height: 48px;
+      background: var(--red);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      z-index: 50;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: var(--transition);
+      border: none;
+      box-shadow: 0 4px 20px rgba(224,30,36,0.45);
+    }
+    #scroll-top.visible { opacity: 1; transform: translateY(0); }
+    #scroll-top:hover   { background: var(--red-dark); transform: translateY(-3px); }
+    #scroll-top svg     { width: 20px; height: 20px; color: white; }
+
+    /* ─── Responsive ────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .nav-links    { display: none; }
+      .hamburger    { display: flex; }
+      .about-grid   { grid-template-columns: 1fr; }
+      .about-image-col { display: none; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-top   { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: span 2; }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-item:nth-child(1) { grid-column: span 12; height: 260px; }
+      .gallery-item:nth-child(2) { grid-column: span 12; height: 220px; }
+      .gallery-item:nth-child(3),
+      .gallery-item:nth-child(4) { grid-column: span 6;  height: 190px; }
+      .gallery-item:nth-child(5) { grid-column: span 12; height: 190px; }
+      .gallery-item:nth-child(6) { grid-column: span 12; height: 190px; }
+      .hero-stats { flex-wrap: wrap; }
+      .hero-stat  { flex: 0 0 50%; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    }
+
+    @media (max-width: 600px) {
+      .contact-form-wrap { padding: 28px 20px; }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-brand { grid-column: span 1; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      #scroll-top { right: 20px; bottom: 20px; }
+    }
+
+    /* ─── Reg Lookup ────────────────────────────────────────────── */
+    #reg-lookup {
+      background: var(--bg-alt);
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .reg-lookup-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .reg-lookup-inner h2 {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 5vw, 40px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .reg-lookup-inner > p {
+      color: var(--grey);
+      font-size: 15px;
+      margin-bottom: 36px;
+    }
+    .reg-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: stretch;
+    }
+    .plate-wrap {
+      display: flex;
+      align-items: stretch;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 3px solid #111;
+      flex: 1;
+      max-width: 360px;
+      box-shadow: 0 0 0 1px #000;
+    }
+    .plate-flag {
+      background: #003399;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 9px;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+    .flag-star { font-size: 7px; color: #FFD700; line-height: 1; }
+    .flag-gb   { font-family: var(--font-head); font-size: 11px; font-weight: 700; color: #fff; letter-spacing: 0.5px; }
+    .plate-input {
+      flex: 1;
+      background: #F5C518;
+      border: none;
+      outline: none;
+      font-family: 'Arial Black', 'Arial', sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: #000;
+      padding: 10px 14px;
+      min-width: 0;
+      text-align: center;
+    }
+    .plate-input::placeholder { color: rgba(0,0,0,0.28); letter-spacing: 5px; font-size: 26px; }
+    .reg-btn {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 0 28px;
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background var(--transition);
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .reg-btn:hover:not(:disabled) { background: var(--red-dark); }
+    .reg-btn:disabled { opacity: 0.65; cursor: not-allowed; }
+    .reg-spinner {
+      width: 15px; height: 15px;
+      border: 2px solid rgba(255,255,255,0.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: reg-spin 0.7s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes reg-spin { to { transform: rotate(360deg); } }
+    .reg-result {
+      margin-top: 28px;
+      display: none;
+      text-align: left;
+    }
+    .reg-result.visible { display: block; animation: fadeUp 0.35s ease; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .reg-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .reg-card-header {
+      background: var(--red);
+      padding: 13px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .reg-card-title {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #fff;
+    }
+    .reg-plate-badge {
+      background: #F5C518;
+      color: #000;
+      font-family: 'Arial Black', 'Arial', sans-serif;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .reg-row {
+      display: flex;
+      align-items: center;
+      padding: 13px 20px;
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+    }
+    .reg-row:last-child { border-bottom: none; }
+    .reg-label {
+      font-family: var(--font-head);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--grey);
+      min-width: 130px;
+      flex-shrink: 0;
+    }
+    .reg-value { font-size: 14px; font-weight: 500; color: var(--grey-light); }
+    .reg-value.warn { color: var(--red); font-weight: 600; }
+    .reg-disclaimer {
+      margin-top: 14px;
+      font-size: 11.5px;
+      color: var(--grey);
+      opacity: 0.6;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      #reg-lookup { padding: 60px 0; }
+      .reg-form { flex-direction: column; }
+      .plate-wrap { max-width: 100%; }
+      .reg-btn { justify-content: center; padding: 16px; }
+      .plate-input { font-size: 24px; letter-spacing: 6px; }
+      .reg-label { min-width: 110px; font-size: 10px; }
+    }
+
+    /* ─── Brand Ribbon ─────────────────────────────────────────── */
+    .brand-ribbon {
+      background: #080808;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      padding: 20px 0;
+      position: relative;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+      mask-image:         linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+    }
+
+    .brand-ribbon-track {
+      display: flex;
+      width: max-content;
+      animation: ribbon-scroll 50s linear infinite;
+      will-change: transform;
+    }
+
+    .brand-set {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      display: block;
+      height: 60px;
+      width: auto;
+      max-width: 140px;
+      flex-shrink: 0;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.5;
+      margin: 0 50px;
+      transition: opacity 0.25s ease;
+    }
+    .brand-logo:hover { opacity: 1; }
+
+    @keyframes ribbon-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── Fade-in ────────────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-d1 { transition-delay: 0.08s; }
+    .fade-in-d2 { transition-delay: 0.16s; }
+    .fade-in-d3 { transition-delay: 0.24s; }
+    .fade-in-d4 { transition-delay: 0.32s; }
+    .fade-in-d5 { transition-delay: 0.40s; }
+    .fade-in-d6 { transition-delay: 0.48s; }
+    .fade-in-d7 { transition-delay: 0.56s; }
+  </style>
+</head>
+
+<body>
+
+<!-- ─── Announce Bar ────────────────────────────────────────── -->
+<div class="announce-bar">
+  <div class="announce-inner">
+    <span>📞 <a href="tel:020XXXXXXXX">020 XXXX XXXX</a></span>
+    <span class="announce-sep announce-hours">|</span>
+    <span class="announce-hours">Mon–Fri: 8:00am – 6:00pm</span>
+    <span class="announce-sep announce-hours">|</span>
+    <span class="announce-hours">Sat: 9:00am – 2:00pm</span>
+    <span class="announce-sep announce-hours">|</span>
+    <span class="announce-hours">Sun: Closed</span>
+  </div>
+</div>
+
+<!-- ─── Navigation ──────────────────────────────────────────── -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+
+      <a href="#hero" class="logo-mark">
+        <span class="logo-slash">//</span>
+        <div class="logo-text-wrap">
+          <span class="logo-primary">Technical &amp; Mechanical</span>
+          <span class="logo-secondary">Tech-Mech</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact" class="btn btn-primary nav-cta">Book Now</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about"    onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#gallery"  onclick="closeMobile()">Gallery</a>
+  <a href="#reviews"  onclick="closeMobile()">Reviews</a>
+  <a href="#contact"  onclick="closeMobile()">Book Now</a>
+</div>
+
+<!-- ─── Hero ────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Reliable &bull; Transparent &bull; Affordable</div>
+
+      <h1 class="hero-title">
+        Automotive<br />
+        Repair &amp;<br />
+        <span>Maintenance.</span>
+      </h1>
+
+      <p class="hero-sub">
+        Experienced mechanics handling everything from oil changes and brake repairs
+        to advanced diagnostics and engine overhauls — keeping your vehicle running smoothly.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book a Service
+        </a>
+        <a href="#services" class="btn btn-outline">
+          Our Services
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">12+</div>
+      <div class="hero-stat-label">Years Experience</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">4,000+</div>
+      <div class="hero-stat-label">Vehicles Serviced</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5★</div>
+      <div class="hero-stat-label">Google Rating</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">All Makes</div>
+      <div class="hero-stat-label">All Models</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Reg Lookup ───────────────────────────────────────────── -->
+<section id="reg-lookup">
+  <div class="container">
+    <div class="reg-lookup-inner fade-in">
+      <h2>Check Your Vehicle</h2>
+      <p>Enter your reg plate and we'll pull up your vehicle details instantly</p>
+      <div class="reg-form">
+        <div class="plate-wrap">
+          <div class="plate-flag">
+            <span class="flag-star">★</span>
+            <span class="flag-gb">GB</span>
+          </div>
+          <input class="plate-input" id="reg-input" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off" spellcheck="false" />
+        </div>
+        <button class="reg-btn" id="reg-btn" type="button">Check Vehicle</button>
+      </div>
+      <div class="reg-result" id="reg-result">
+        <div class="reg-card">
+          <div class="reg-card-header">
+            <span class="reg-card-title">Vehicle Details</span>
+            <span class="reg-plate-badge" id="reg-plate-display"></span>
+          </div>
+          <div class="reg-row"><span class="reg-label">Make</span><span class="reg-value">FORD</span></div>
+          <div class="reg-row"><span class="reg-label">Model Year</span><span class="reg-value">2019</span></div>
+          <div class="reg-row"><span class="reg-label">Engine Size</span><span class="reg-value">1500cc</span></div>
+          <div class="reg-row"><span class="reg-label">Fuel Type</span><span class="reg-value">Petrol</span></div>
+          <div class="reg-row"><span class="reg-label">Colour</span><span class="reg-value">Blue</span></div>
+          <div class="reg-row"><span class="reg-label">MOT Expiry</span><span class="reg-value warn">14 March 2026</span></div>
+          <div class="reg-row"><span class="reg-label">Tax Status</span><span class="reg-value">Taxed</span></div>
+        </div>
+        <p class="reg-disclaimer">Live vehicle lookup coming soon</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Brand Ribbon ─────────────────────────────────────────── -->
+<div class="brand-ribbon" aria-hidden="true">
+  <div class="brand-ribbon-track">
+
+    <!-- Set 1 -->
+    <div class="brand-set">
+      <img class="brand-logo" src="https://cdn.simpleicons.org/bmw" alt="BMW" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/audi" alt="Audi" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/ford" alt="Ford" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/volkswagen" alt="Volkswagen" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/toyota" alt="Toyota" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/honda" alt="Honda" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/nissan" alt="Nissan" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/kia" alt="Kia" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/hyundai" alt="Hyundai" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/skoda" alt="Skoda" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/renault" alt="Renault" />
+    </div>
+
+    <!-- Set 2 — exact duplicate, enables seamless loop -->
+    <div class="brand-set" aria-hidden="true">
+      <img class="brand-logo" src="https://cdn.simpleicons.org/bmw" alt="" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/audi" alt="" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/ford" alt="" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/volkswagen" alt="" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/toyota" alt="" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/honda" alt="" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/nissan" alt="" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/kia" alt="" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/hyundai" alt="" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/skoda" alt="" />
+      <img class="brand-logo" src="https://cdn.simpleicons.org/renault" alt="" />
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── About ───────────────────────────────────────────────── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-text-col fade-in">
+        <span class="section-label">Who We Are</span>
+        <h2 class="section-title">Built On <span>Trust &amp; Expertise</span></h2>
+
+        <p class="about-body">
+          At Tech-Mech, we provide reliable automotive repair and maintenance services.
+          Our experienced mechanics handle everything from oil changes and brake repairs
+          to advanced diagnostics and engine overhauls. We prioritise customer satisfaction,
+          transparency, and affordable pricing to keep your vehicle running smoothly.
+        </p>
+
+        <div class="about-pillars">
+          <div class="about-pillar">
+            <div class="about-pillar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <div class="about-pillar-title">Customer Satisfaction</div>
+              <p class="about-pillar-desc">Your satisfaction drives everything we do. We communicate clearly, work quickly and stand behind every job we complete.</p>
+            </div>
+          </div>
+
+          <div class="about-pillar">
+            <div class="about-pillar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+              <div class="about-pillar-title">Full Transparency</div>
+              <p class="about-pillar-desc">No hidden costs, no unnecessary upselling. We'll always explain what needs doing and why before we start any work.</p>
+            </div>
+          </div>
+
+          <div class="about-pillar">
+            <div class="about-pillar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <div class="about-pillar-title">Affordable Pricing</div>
+              <p class="about-pillar-desc">Competitive rates without compromising on quality. Quality parts, fair labour and a price you can trust every time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image-col fade-in fade-in-d2">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=900&q=80" alt="Mechanic working on vehicle" loading="lazy" />
+          <div class="about-img-badge">
+            <div class="about-img-badge-num">100%</div>
+            <div class="about-img-badge-label">Satisfaction Guarantee</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Services ─────────────────────────────────────────────── -->
+<section id="services">
+  <div class="container">
+    <div class="services-header fade-in">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Our <span>Services</span></h2>
+      <p style="color: var(--grey); margin-top: 14px; font-size: 15px; line-height: 1.7;">
+        A full range of automotive services using quality parts and expert technicians.
+        Transparent pricing — no hidden surprises, ever.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card fade-in fade-in-d1">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="service-name">General Vehicle Maintenance</div>
+        <p class="service-desc">Oil changes, filters, fluid top-ups, belts and routine check-ups to keep your car in peak condition and prevent costly breakdowns.</p>
+      </div>
+
+      <div class="service-card fade-in fade-in-d2">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="service-name">Engine Diagnostics &amp; Repair</div>
+        <p class="service-desc">State-of-the-art diagnostic tools covering all makes and models. Warning light on? We get to the root cause and fix it right the first time.</p>
+      </div>
+
+      <div class="service-card fade-in fade-in-d3">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <div class="service-name">Brake Services</div>
+        <p class="service-desc">Full brake system inspection, pad and disc replacement, caliper servicing and brake fluid changes. Safety-critical — never compromise.</p>
+      </div>
+
+      <div class="service-card fade-in fade-in-d4">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12m0-8V2"/><path d="M5 12H2"/><path d="M22 12h-3"/><path d="M7.05 7.05 5 5"/><path d="M19 19l-2.05-2.05"/><path d="M7.05 16.95 5 19"/><path d="M19 5l-2.05 2.05"/></svg>
+        </div>
+        <div class="service-name">Suspension &amp; Steering</div>
+        <p class="service-desc">Shock absorbers, springs, control arms, wheel alignment and steering rack repairs. Restore handling, comfort and tyre life.</p>
+      </div>
+
+      <div class="service-card fade-in fade-in-d5">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        </div>
+        <div class="service-name">Transmission Services</div>
+        <p class="service-desc">Gearbox diagnostics, clutch replacement, automatic and manual transmission servicing to ensure smooth power delivery and longevity.</p>
+      </div>
+
+      <div class="service-card fade-in fade-in-d6">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="service-name">Electrical System Repair</div>
+        <p class="service-desc">Battery testing and replacement, alternator and starter diagnosis, wiring faults, sensor replacement and full vehicle electrical checks.</p>
+      </div>
+
+      <div class="service-card fade-in fade-in-d7">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/></svg>
+        </div>
+        <div class="service-name">Bodywork</div>
+        <p class="service-desc">Dent removal, scratch repair, panel work and minor body restoration. We'll have your vehicle looking as good as it drives.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Gallery ───────────────────────────────────────────────── -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header fade-in">
+      <span class="section-label">Our Workshop</span>
+      <h2 class="section-title">Take A <span>Look Inside</span></h2>
+      <p style="color: var(--grey); margin-top: 14px; font-size: 15px;">
+        A glimpse of our workshop and the standard of work we deliver every day.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=80" alt="Mechanic at work" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      </div>
+
+      <div class="gallery-item fade-in fade-in-d1">
+        <img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=800&q=80" alt="Wheel and tyre" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      </div>
+
+      <div class="gallery-item fade-in fade-in-d2">
+        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=800&q=80" alt="Car in garage" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      </div>
+
+      <div class="gallery-item fade-in fade-in-d3">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80" alt="Engine bay" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      </div>
+
+      <div class="gallery-item fade-in fade-in-d4">
+        <img src="https://images.unsplash.com/photo-1620060782812-f9e9abae0e0f?auto=format&fit=crop&w=800&q=80" alt="Car repair" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      </div>
+
+      <div class="gallery-item fade-in fade-in-d5">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1800&q=80" alt="Sports car" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Reviews ──────────────────────────────────────────────── -->
+<section id="reviews">
+  <div class="container">
+    <div class="reviews-header fade-in">
+      <span class="section-label">Testimonials</span>
+      <h2 class="section-title">What Our <span>Customers</span> Say</h2>
+      <p style="color: var(--grey); margin-top: 14px; font-size: 15px;">
+        Don't just take our word for it — here's what real customers think about Tech-Mech.
+      </p>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div class="review-card fade-in fade-in-d1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">Absolutely brilliant service from start to finish. My car was booked in for a full service and MOT — they kept me updated throughout and had it ready ahead of schedule. Prices are very fair and the team are genuinely honest. Won't go anywhere else.</p>
+        <div class="review-author">
+          <div class="review-avatar">JD</div>
+          <div>
+            <div class="review-name">James D.</div>
+            <div class="review-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-in fade-in-d2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">Engine warning light came on and I was dreading the worst. Tech-Mech diagnosed it quickly, explained everything clearly and fixed it for a fraction of what I expected. Refreshingly honest, no hard sell. Highly recommended.</p>
+        <div class="review-author">
+          <div class="review-avatar">SM</div>
+          <div>
+            <div class="review-name">Sarah M.</div>
+            <div class="review-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-in fade-in-d3">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">Been using Tech-Mech for three years across two different cars. Always the same great experience — fast, professional and they never try to upsell you on things you don't need. These guys are the real deal.</p>
+        <div class="review-author">
+          <div class="review-avatar">RK</div>
+          <div>
+            <div class="review-name">Ryan K.</div>
+            <div class="review-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Contact ───────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="contact-info fade-in">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Book Your <span>Visit</span></h2>
+        <p>
+          Ready to get your vehicle sorted? Drop us a message and we'll get back to you promptly to confirm your booking — or reach us directly below.
+        </p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-text">+44 7XXX XXX XXX</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-text">hello@techmech.co.uk</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Address</div>
+            <div class="contact-detail-text">123 Garage Lane, Your Town, AB1 2CD</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Opening Hours</div>
+            <div class="contact-detail-text">Mon–Fri 8am–6pm &nbsp;|&nbsp; Sat 8am–2pm</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap fade-in fade-in-d2">
+        <div class="form-title">Send a Message</div>
+        <p class="form-subtitle">Fill in the details below and we'll be in touch shortly.</p>
+
+        <div class="simplybook-note">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          SimplyBook online scheduling will be integrated here
+        </div>
+
+        <form id="booking-form" novalidate>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="John Smith" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+44 7XXX XXX XXX" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell us about your vehicle and what needs doing..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#hero" class="logo-mark" style="display:inline-flex; margin-bottom: 20px;">
+          <span class="logo-slash">//</span>
+          <div class="logo-text-wrap">
+            <span class="logo-primary">Technical &amp; Mechanical</span>
+            <span class="logo-secondary">Tech-Mech</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Your trusted local garage for general maintenance, engine diagnostics, brakes, suspension, transmission, electrics and bodywork. Honest work at fair prices — guaranteed.</p>
+        <div class="footer-contact-btns">
+          <a href="https://wa.me/447XXXXXXXXX" class="footer-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+447XXXXXXXXX" class="footer-btn btn-phone">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call Us
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Opening Hours</div>
+        <ul class="footer-hours">
+          <li>Monday–Friday <span>8:00 – 18:00</span></li>
+          <li>Saturday <span>8:00 – 14:00</span></li>
+          <li>Sunday <span>Closed</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 Tech-Mech. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<button id="scroll-top" aria-label="Back to top">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+  /* ── Hamburger ── */
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  /* ── Scroll-to-top ── */
+  const scrollBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 500);
+  });
+  scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── Fade-in on scroll ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  /* ── Form submit placeholder ── */
+  document.getElementById('booking-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    const orig = btn.innerHTML;
+    btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Message Sent`;
+    btn.style.background = '#16a34a';
+    btn.disabled = true;
+    setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 3500);
+  });
+
+  /* ── Reg Lookup ── */
+  const regBtn          = document.getElementById('reg-btn');
+  const regInput        = document.getElementById('reg-input');
+  const regResult       = document.getElementById('reg-result');
+  const regPlateDisplay = document.getElementById('reg-plate-display');
+
+  regInput.addEventListener('input', () => {
+    regInput.value = regInput.value.toUpperCase().replace(/[^A-Z0-9 ]/g, '');
+  });
+
+  regInput.addEventListener('keydown', e => { if (e.key === 'Enter') regBtn.click(); });
+
+  regBtn.addEventListener('click', () => {
+    const plate = regInput.value.trim();
+    if (!plate) { regInput.focus(); return; }
+    regBtn.disabled = true;
+    regBtn.innerHTML = '<span class="reg-spinner"></span> Checking…';
+    regResult.classList.remove('visible');
+    setTimeout(() => {
+      regPlateDisplay.textContent = plate;
+      regResult.classList.add('visible');
+      regBtn.disabled = false;
+      regBtn.innerHTML = 'Check Vehicle';
+      regResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 1000);
+  });
+
+  /* ── Active nav highlight on scroll ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a:not(.btn)');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY + 100;
+    sections.forEach(s => {
+      if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
+        navAnchors.forEach(a => {
+          a.style.color = a.getAttribute('href') === '#' + s.id ? 'var(--red)' : '';
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
