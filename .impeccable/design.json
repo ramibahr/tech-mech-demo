@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-31T00:00:00Z",
+  "title": "Design System: Tech-Mech",
+  "extensions": {
+    "colorMeta": {
+      "diagnostic-red": { "role": "primary", "displayName": "Diagnostic Red", "canonical": "#e01e24", "tonalRamp": ["#2a0405", "#4a070a", "#6e0b0f", "#961016", "#c01720", "#e01e24", "#ef6066", "#fce4e5"] },
+      "diagnostic-red-deep": { "role": "primary", "displayName": "Diagnostic Red — Deep", "canonical": "#b01820", "tonalRamp": ["#1f0304", "#3a0609", "#57090d", "#7a0d12", "#9c1119", "#b01820", "#d95a60", "#f6d9da"] },
+      "diagnostic-red-a11y": { "role": "primary", "displayName": "Diagnostic Red — Accessible", "canonical": "#ff525a", "tonalRamp": ["#3a0407", "#66090d", "#970e14", "#c8131a", "#e01e24", "#ff525a", "#ff9a9e", "#ffdadb"] },
+      "near-black": { "role": "neutral", "displayName": "Near-Black", "canonical": "#0d0d0d", "tonalRamp": ["#050505", "#0d0d0d", "#171717", "#242424", "#404040", "#6b6b6b", "#9a9a9a", "#f5f5f5"] },
+      "charcoal-card": { "role": "neutral", "displayName": "Charcoal Card", "canonical": "#171717", "tonalRamp": ["#050505", "#0d0d0d", "#171717", "#242424", "#404040", "#6b6b6b", "#9a9a9a", "#f5f5f5"] },
+      "charcoal-alt": { "role": "neutral", "displayName": "Charcoal Alt", "canonical": "#111111", "tonalRamp": ["#050505", "#0d0d0d", "#171717", "#242424", "#404040", "#6b6b6b", "#9a9a9a", "#f5f5f5"] },
+      "graphite-border": { "role": "neutral", "displayName": "Graphite Border", "canonical": "#242424", "tonalRamp": ["#050505", "#0d0d0d", "#171717", "#242424", "#404040", "#6b6b6b", "#9a9a9a", "#f5f5f5"] },
+      "white": { "role": "neutral", "displayName": "White", "canonical": "#ffffff", "tonalRamp": ["#050505", "#0d0d0d", "#171717", "#242424", "#404040", "#6b6b6b", "#9a9a9a", "#f5f5f5"] },
+      "steel-grey": { "role": "neutral", "displayName": "Steel Grey", "canonical": "#9a9a9a", "tonalRamp": ["#050505", "#0d0d0d", "#171717", "#242424", "#404040", "#6b6b6b", "#9a9a9a", "#f5f5f5"] },
+      "fog-grey": { "role": "neutral", "displayName": "Fog Grey", "canonical": "#cccccc", "tonalRamp": ["#050505", "#0d0d0d", "#171717", "#242424", "#404040", "#6b6b6b", "#9a9a9a", "#f5f5f5"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero title only." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles (About, Services, Gallery, Reviews, Contact)." },
+      "headline-sm": { "displayName": "Headline — Small", "purpose": "Reg Lookup panel heading, tuned for a narrower column." },
+      "title-lg": { "displayName": "Title — Large", "purpose": "Contact form title." },
+      "title": { "displayName": "Title", "purpose": "Service names, review author names." },
+      "title-sm": { "displayName": "Title — Small", "purpose": "About pillar titles, review-avatar initials." },
+      "body-lg": { "displayName": "Body — Large", "purpose": "Hero subhead; also the review-card star row at the same size." },
+      "body": { "displayName": "Body", "purpose": "Primary paragraph copy meant to be read at length." },
+      "body-sm": { "displayName": "Body — Small", "purpose": "Supporting copy: card descriptions, form text, footer links/tagline." },
+      "body-xs": { "displayName": "Body — Extra Small", "purpose": "Tertiary copy: pillar descriptions, footer hours/copyright." },
+      "label": { "displayName": "Label", "purpose": "Footer column titles." },
+      "label-sm": { "displayName": "Label — Small", "purpose": "Nav links, footer pill buttons, reg-card title bar." },
+      "label-xs": { "displayName": "Label — Extra Small", "purpose": "Hero badge, form field labels, reg field labels." },
+      "label-2xs": { "displayName": "Label — 2XS", "purpose": "Logo secondary line, stat labels, contact detail labels." },
+      "stat": { "displayName": "Stat", "purpose": "Hero stat-bar numbers and the about-image badge number — one shared step." }
+    },
+    "shadows": [
+      { "name": "card-lift-service", "value": "0 24px 60px rgba(0,0,0,0.45)", "purpose": "Service card hover lift." },
+      { "name": "card-lift-review", "value": "0 16px 48px rgba(0,0,0,0.35)", "purpose": "Review card hover lift." },
+      { "name": "red-glow-button", "value": "0 8px 30px rgba(224,30,36,0.4)", "purpose": "Primary button hover glow." },
+      { "name": "red-glow-scroll-top", "value": "0 4px 20px rgba(224,30,36,0.45)", "purpose": "Scroll-to-top button resting glow." },
+      { "name": "focus-ring-red", "value": "0 0 0 3px rgba(224,30,36,0.1)", "purpose": "Input focus ring." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "0.3s ease", "purpose": "Default hover/interactive transition used across buttons, links, cards, inputs." },
+      { "name": "ease-image-zoom", "value": "0.55s ease", "purpose": "Gallery image hover zoom." },
+      { "name": "ease-hero-parallax", "value": "10s ease", "purpose": "Slow ambient zoom on the hero background image." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "600px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "960px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid red CTA — the system's highest-intent control.",
+      "html": "<button class=\"ds-btn-primary\">Book a Service</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; font-family: 'Big Shoulders Display', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #ffffff; background: #e01e24; border: none; border-radius: 10px; cursor: pointer; transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { background: #b01820; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(224,30,36,0.4); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Transparent secondary CTA that fills the same footprint as the primary button.",
+      "html": "<a href=\"#services\" class=\"ds-btn-outline\">Our Services</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; font-family: 'Big Shoulders Display', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #ffffff; background: transparent; border: 2px solid rgba(255,255,255,0.2); border-radius: 10px; text-decoration: none; transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease; } .ds-btn-outline:hover, .ds-btn-outline:focus-visible { border-color: #e01e24; color: #e01e24; transform: translateY(-2px); }"
+    },
+    {
+      "name": "Footer Pill CTA",
+      "kind": "button",
+      "description": "Direct-contact pill button — the one place buttons take full-pill radius instead of 10px.",
+      "html": "<a href=\"tel:+00000000000\" class=\"ds-btn-pill-phone\">Call Now</a>",
+      "css": ".ds-btn-pill-phone { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; font-family: 'Big Shoulders Display', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #e01e24; background: rgba(224,30,36,0.10); border: 2px solid rgba(224,30,36,0.35); border-radius: 50px; transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; } .ds-btn-pill-phone:hover, .ds-btn-pill-phone:focus-visible { background: #e01e24; border-color: #e01e24; color: #ffffff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(224,30,36,0.32); }"
+    },
+    {
+      "name": "Service Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Flat-at-rest card that lifts with a neutral shadow and red-tinted border on hover.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-title\">Brake Services</div><p class=\"ds-card-desc\">Full brake system inspection, pad and disc replacement, caliper servicing and brake fluid changes.</p></div>",
+      "css": ".ds-card { position: relative; overflow: hidden; background: #171717; border: 1px solid #242424; border-radius: 10px; padding: 36px 30px; transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; } .ds-card:hover, .ds-card:focus-within { border-color: rgba(224,30,36,0.35); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.45); } .ds-card-title { font-family: 'Big Shoulders Display', sans-serif; font-size: 19px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #ffffff; margin-bottom: 10px; } .ds-card-desc { font-family: 'Montserrat', sans-serif; font-size: 14px; color: #9a9a9a; line-height: 1.7; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Dark-filled field with a red focus ring; no border-width change on focus.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field-label\">Phone Number</label><input class=\"ds-field-input\" type=\"tel\" placeholder=\"+44 7XXX XXX XXX\" /></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 8px; } .ds-field-label { font-family: 'Big Shoulders Display', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #9a9a9a; } .ds-field-input { background: #111111; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 14px; outline: none; transition: border-color 0.3s ease, box-shadow 0.3s ease; } .ds-field-input::placeholder { color: #484848; } .ds-field-input:focus { border-color: #e01e24; box-shadow: 0 0 0 3px rgba(224,30,36,0.1); }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "description": "Uppercase, tracked-out Big Shoulders Display link with a color-only hover state; .active marks the current page.",
+      "html": "<a href=\"services.html\" class=\"ds-nav-link active\">Services</a>",
+      "css": ".ds-nav-link { font-family: 'Big Shoulders Display', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: #cccccc; text-decoration: none; transition: color 0.3s ease; } .ds-nav-link:hover, .ds-nav-link:focus-visible, .ds-nav-link.active { color: #e01e24; }"
+    },
+    {
+      "name": "Hero Stat Cell",
+      "kind": "custom",
+      "description": "Dashboard-style readout cell used in the hero stat bar — the system's most concentrated trust signal.",
+      "html": "<div class=\"ds-stat\"><div class=\"ds-stat-num\">12+</div><div class=\"ds-stat-label\">Years Experience</div></div>",
+      "css": ".ds-stat { flex: 1; text-align: center; padding: 24px 16px; border-right: 1px solid rgba(255,255,255,0.07); background: rgba(0,0,0,0.55); } .ds-stat-num { font-family: 'Big Shoulders Display', sans-serif; font-size: 2rem; font-weight: 700; color: #e01e24; line-height: 1; } .ds-stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #9a9a9a; margin-top: 6px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Diagnostic Bay",
+    "overview": "Tech-Mech reads as a workshop instrument panel, not a marketing brochure: a near-black canvas (#0d0d0d) that recedes so completely that the single accent — Diagnostic Red (#e01e24) — reads with the authority of a warning light on a scan tool. The system is industrial and disciplined: condensed uppercase Big Shoulders Display headings, generous 120px section rhythm, flat dark-on-darker card surfaces distinguished by hairline borders rather than shadows, and controls that stay quiet until touched. Confidence comes from control, not noise — the palette never competes with the red, and the red never appears without reason (a CTA, a stat, an active state, a safety cue). No anti-reference has been confirmed yet; this system should keep favoring instrument-panel restraint over decorative flourish as it's extended.",
+    "keyCharacteristics": [
+      "Near-black canvas with a single, disciplined red signal color",
+      "Condensed, uppercase Big Shoulders Display for anything structural (headings, labels, nav, buttons)",
+      "Flat surfaces at rest; depth and red-tinted glow appear only as hover feedback",
+      "Generous, consistent 120px vertical section rhythm; tight, precise component padding",
+      "A dedicated logo typeface (Barlow Condensed) that never leaks into body UI"
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "Diagnostic Red is the only color allowed to mean \"act here\" or \"this matters now.\" If something new needs emphasis, it earns red or it doesn't get emphasis — it does not get a second accent color.", "section": "colors" },
+      { "name": "The All-Caps Structure Rule", "body": "Anything that is structural chrome rather than reading content — nav, buttons, labels, section eyebrows, stat labels — is Big Shoulders Display, uppercase, and tracked out. Anything meant to be read at length is Montserrat, sentence case, untracked.", "section": "typography" },
+      { "name": "The Earned-Shadow Rule", "body": "Nothing casts a shadow at rest. Shadows exist only as feedback for an action just taken (hover) or an action available (a primary control) — never as decoration.", "section": "elevation" },
+      { "name": "The Container-vs-Pill Rule", "body": "10px radius means \"this holds content.\" Full-pill/circle radius means \"this is a badge, a person, or a direct contact action.\" The two never swap roles.", "section": "shapes" },
+      { "name": "The No-Eyebrow Rule", "body": "No kicker/eyebrow label sits above a section heading. The heading carries its own weight — delete the label rather than adding one back, even when a reference layout uses one.", "section": "typography" }
+    ],
+    "dos": [
+      "Do keep Diagnostic Red to signal-carrying elements only (CTAs, active states, key numbers) — never a background fill for large areas.",
+      "Do use 10px radius for anything that holds content, and reserve full-pill/circle radius for badges, avatars, and direct-contact buttons.",
+      "Do let shadows appear only in response to hover or on the highest-intent controls — nothing casts a shadow at rest.",
+      "Do keep Big Shoulders Display uppercase for structural chrome (nav, buttons, labels) and Montserrat sentence-case for anything meant to be read at length.",
+      "Do center and cap section intro headers (Services, Gallery, Reviews) at 640px, with a responsive gap before the grid (clamp(48px, 6vw, 64px))."
+    ],
+    "donts": [
+      "Don't introduce a second accent color alongside Diagnostic Red — new emphasis needs earn red or don't get emphasis.",
+      "Don't use Barlow Condensed anywhere outside the logo wordmark.",
+      "Don't add resting shadows to cards or panels — depth is earned through interaction, not applied by default.",
+      "Don't give a content-holding container a pill or circular radius, or a badge/avatar a 10px radius — the two corner languages must stay separate.",
+      "Don't add a kicker/eyebrow label above a section heading."
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+# Local/machine-specific Impeccable state — not project source
+.impeccable/config.local.json
+.impeccable/hook.cache.json

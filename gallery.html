@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tech-Mech | Technical &amp; Mechanical Automotive Services</title>
+  <title>Gallery | Tech-Mech</title>
   <meta name="description" content="Tech-Mech — reliable automotive repair and maintenance. Engine diagnostics, brake services, servicing and more. Transparent pricing, experienced mechanics." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body class="has-hero">
+<body>
 
 <!-- ─── Announce Bar ────────────────────────────────────────── -->
 <div class="announce-bar">
@@ -66,193 +66,57 @@
   <a href="contact.html" class="btn btn-primary">Book Now</a>
 </div>
 
-<!-- ─── Hero ────────────────────────────────────────────────── -->
-<section id="hero">
-  <div class="hero-slideshow" id="hero-slideshow">
-    <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80')"></div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1920&q=80"></div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1920&q=80"></div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1920&q=80"></div>
-  </div>
-  <div class="hero-overlay"></div>
-
+<!-- ─── Gallery ───────────────────────────────────────────────── -->
+<section id="gallery">
   <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">Reliable &bull; Transparent &bull; Affordable</div>
-
-      <h1 class="hero-title">
-        Automotive<br />
-        Repair &amp;<br />
-        <span>Maintenance.</span>
-      </h1>
-
-      <p class="hero-sub">
-        Experienced mechanics handling everything from oil changes and brake repairs
-        to advanced diagnostics and engine overhauls — keeping your vehicle running smoothly.
-      </p>
-
-      <div class="hero-actions">
-        <a href="contact.html" class="btn btn-primary">
-          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Book a Service
-        </a>
-        <a href="services.html" class="btn btn-outline">
-          Our Services
-          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-num">12+</div>
-      <div class="hero-stat-label">Years Experience</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">4,000+</div>
-      <div class="hero-stat-label">Vehicles Serviced</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">5★</div>
-      <div class="hero-stat-label">Google Rating</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">All Makes</div>
-      <div class="hero-stat-label">All Models</div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── Reg Lookup ───────────────────────────────────────────── -->
-<section id="reg-lookup">
-  <div class="container">
-    <div class="reg-lookup-inner fade-in">
-      <h2>Check Your Vehicle</h2>
-      <p>Enter your reg plate and we'll pull up your vehicle details instantly</p>
-      <div class="reg-form">
-        <div class="plate-wrap">
-          <div class="plate-flag" aria-hidden="true">
-            <span class="flag-star">★</span>
-            <span class="flag-gb">GB</span>
-          </div>
-          <label for="reg-input" class="sr-only">Vehicle registration number</label>
-          <input class="plate-input" id="reg-input" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off" spellcheck="false" />
-        </div>
-        <button class="reg-btn" id="reg-btn" type="button">Check Vehicle</button>
-      </div>
-      <div class="reg-result" id="reg-result">
-        <div class="reg-card">
-          <div class="reg-card-header">
-            <span class="reg-card-title">Vehicle Details</span>
-            <span class="reg-plate-badge" id="reg-plate-display"></span>
-          </div>
-          <div class="reg-row"><span class="reg-label">Make</span><span class="reg-value">FORD</span></div>
-          <div class="reg-row"><span class="reg-label">Model Year</span><span class="reg-value">2019</span></div>
-          <div class="reg-row"><span class="reg-label">Engine Size</span><span class="reg-value">1500cc</span></div>
-          <div class="reg-row"><span class="reg-label">Fuel Type</span><span class="reg-value">Petrol</span></div>
-          <div class="reg-row"><span class="reg-label">Colour</span><span class="reg-value">Blue</span></div>
-          <div class="reg-row"><span class="reg-label">MOT Expiry</span><span class="reg-value warn">14 March 2026</span></div>
-          <div class="reg-row"><span class="reg-label">Tax Status</span><span class="reg-value">Taxed</span></div>
-        </div>
-        <p class="reg-disclaimer">Live vehicle lookup coming soon</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── Brand Ribbon ─────────────────────────────────────────── -->
-<div class="brand-ribbon" aria-hidden="true">
-  <div class="brand-ribbon-track">
-
-    <!-- Set 1 -->
-    <div class="brand-set">
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/bmw" alt="BMW" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/audi" alt="Audi" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/ford" alt="Ford" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/volkswagen" alt="Volkswagen" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/toyota" alt="Toyota" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/honda" alt="Honda" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/nissan" alt="Nissan" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/kia" alt="Kia" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/hyundai" alt="Hyundai" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/skoda" alt="Skoda" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/renault" alt="Renault" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/porsche" alt="Porsche" />
-      <img class="brand-logo" loading="lazy" src="logos/Mercedes-Benz_Star.svg.webp" alt="Mercedes-Benz" />
-    </div>
-
-    <!-- Set 2 — exact duplicate, enables seamless loop -->
-    <div class="brand-set" aria-hidden="true">
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/bmw" alt="" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/audi" alt="" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/ford" alt="" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/volkswagen" alt="" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/toyota" alt="" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/honda" alt="" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/nissan" alt="" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/kia" alt="" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/hyundai" alt="" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/skoda" alt="" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/renault" alt="" />
-      <img class="brand-logo" loading="lazy" src="https://cdn.simpleicons.org/porsche" alt="" />
-      <img class="brand-logo" loading="lazy" src="logos/Mercedes-Benz_Star.svg.webp" alt="" />
-    </div>
-
-  </div>
-</div>
-
-<!-- ─── Reviews ──────────────────────────────────────────────── -->
-<section id="reviews">
-  <div class="container">
-    <div class="reviews-header fade-in">
-      <h2 class="section-title">What Our <span>Customers</span> Say</h2>
+    <div class="gallery-header fade-in">
+      <h1 class="section-title">Take A <span>Look Inside</span></h1>
       <p style="color: var(--grey); margin-top: 14px; font-size: 15px;">
-        Don't just take our word for it — here's what real customers think about Tech-Mech.
+        A glimpse of our workshop and the standard of work we deliver every day.
       </p>
     </div>
 
-    <div class="reviews-grid">
-
-      <div class="review-card fade-in fade-in-d1">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-quote">Absolutely brilliant service from start to finish. My car was booked in for a full service and MOT — they kept me updated throughout and had it ready ahead of schedule. Prices are very fair and the team are genuinely honest. Won't go anywhere else.</p>
-        <div class="review-author">
-          <div class="review-avatar">JD</div>
-          <div>
-            <div class="review-name">James D.</div>
-            <div class="review-source">Google Review</div>
-          </div>
-        </div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in" role="button" tabindex="0" aria-label="View larger image: Mechanic at work">
+        <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=80" alt="Mechanic at work" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
       </div>
 
-      <div class="review-card fade-in fade-in-d2">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-quote">Engine warning light came on and I was dreading the worst. Tech-Mech diagnosed it quickly, explained everything clearly and fixed it for a fraction of what I expected. Refreshingly honest, no hard sell. Highly recommended.</p>
-        <div class="review-author">
-          <div class="review-avatar">SM</div>
-          <div>
-            <div class="review-name">Sarah M.</div>
-            <div class="review-source">Google Review</div>
-          </div>
-        </div>
+      <div class="gallery-item fade-in fade-in-d1" role="button" tabindex="0" aria-label="View larger image: Wheel and tyre">
+        <img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=800&q=80" alt="Wheel and tyre" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
       </div>
 
-      <div class="review-card fade-in fade-in-d3">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-quote">Been using Tech-Mech for three years across two different cars. Always the same great experience — fast, professional and they never try to upsell you on things you don't need. These guys are the real deal.</p>
-        <div class="review-author">
-          <div class="review-avatar">RK</div>
-          <div>
-            <div class="review-name">Ryan K.</div>
-            <div class="review-source">Google Review</div>
-          </div>
-        </div>
+      <div class="gallery-item fade-in fade-in-d2" role="button" tabindex="0" aria-label="View larger image: Car in garage">
+        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=800&q=80" alt="Car in garage" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
       </div>
 
+      <div class="gallery-item fade-in fade-in-d3" role="button" tabindex="0" aria-label="View larger image: Engine bay">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80" alt="Engine bay" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      </div>
+
+      <div class="gallery-item fade-in fade-in-d4" role="button" tabindex="0" aria-label="View larger image: Car repair">
+        <img src="https://images.unsplash.com/photo-1620060782812-f9e9abae0e0f?auto=format&fit=crop&w=800&q=80" alt="Car repair" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      </div>
+
+      <div class="gallery-item fade-in fade-in-d5" role="button" tabindex="0" aria-label="View larger image: Sports car">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1800&q=80" alt="Sports car" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-zoom"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div></div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ─── Lightbox ───────────────────────────────────────────────── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close image preview">
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
 
 <!-- ─── Footer ────────────────────────────────────────────────── -->
 <footer>

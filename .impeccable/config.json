@@ -1,0 +1,159 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "#003399",
+        "createdAt": "2026-08-31T14:33:06.745Z",
+        "reason": "Agent: literal UK number-plate flag navy blue in the reg-lookup mockup, a domain-mandated color"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#ffd700",
+        "createdAt": "2026-08-31T14:33:06.808Z",
+        "reason": "Agent: literal UK/EU flag star gold on the reg-lookup plate flag icon, a domain-mandated color"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#f5c518",
+        "createdAt": "2026-08-31T14:33:06.881Z",
+        "reason": "Agent: literal UK number-plate yellow background, a domain-mandated color"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#25d366",
+        "createdAt": "2026-08-31T14:33:06.937Z",
+        "reason": "Agent: WhatsApp's own brand green for the WhatsApp contact button, documented in DESIGN.md Colors as an intentional one-off"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(37,211,102,0.10)",
+        "createdAt": "2026-08-31T14:33:07.013Z",
+        "reason": "Agent: WhatsApp button tint, same brand-green exception as #25d366"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(37,211,102,0.35)",
+        "createdAt": "2026-08-31T14:33:07.077Z",
+        "reason": "Agent: WhatsApp button border tint, same brand-green exception as #25d366"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(37,211,102,0.28)",
+        "createdAt": "2026-08-31T14:33:07.143Z",
+        "reason": "Agent: WhatsApp button hover glow tint, same brand-green exception as #25d366"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#f59e0b",
+        "createdAt": "2026-08-31T14:33:07.210Z",
+        "reason": "Agent: amber star-rating color, documented in DESIGN.md Colors as an intentional one-off"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#484848",
+        "createdAt": "2026-08-31T14:33:07.276Z",
+        "reason": "Agent: pre-existing input placeholder text color, a minor UI-state neutral"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "arial black",
+        "createdAt": "2026-08-31T14:33:07.342Z",
+        "reason": "Agent: literal UK number-plate typeface for the reg-lookup mockup; the site's display voice remains Big Shoulders Display, this is one domain-literal component"
+      },
+      {
+        "rule": "overused-font",
+        "value": "arial",
+        "createdAt": "2026-08-31T14:33:07.414Z",
+        "reason": "Agent: fallback stack entry for the Arial Black number-plate mockup font, not a body/display typeface choice"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "6px",
+        "createdAt": "2026-08-31T14:33:07.486Z",
+        "reason": "Agent: pre-existing logo-mark chip radius, minor UI chrome distinct from the content/pill radius language"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "2px",
+        "createdAt": "2026-08-31T14:33:07.554Z",
+        "reason": "Agent: pre-existing hamburger icon bar rounding, trivial functional detail"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "4px",
+        "createdAt": "2026-08-31T14:33:07.621Z",
+        "reason": "Agent: pre-existing UK-plate badge corner radius, domain-literal to match a real number plate"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-08-31T14:33:07.689Z",
+        "reason": "Agent: red hover glow matches DESIGN.md's documented Red Glow shadow token exactly (0 8px 30px rgba(224,30,36,0.4)); user asked to keep the existing DESIGN.md color/shadow system as-is for this task"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-08-31T14:33:07.754Z",
+        "reason": "Agent: pre-existing brand-logo trust strip, a common accepted marquee pattern for client/brand logos, not introduced or touched by this task"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "7px",
+        "createdAt": "2026-08-31T14:40:12.470Z",
+        "reason": "Agent: literal UK flag star glyph size in the reg-lookup plate mockup, same domain-mimicry exception already granted for that component's colors/font"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "30px",
+        "createdAt": "2026-08-31T14:40:12.539Z",
+        "reason": "Agent: literal number-plate input digit size in the reg-lookup mockup, matches the Arial Black plate-mimicry exception"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "26px",
+        "createdAt": "2026-08-31T14:40:12.608Z",
+        "reason": "Agent: plate input placeholder size (intentionally smaller than the 30px filled value), part of the same reg-lookup mockup exception"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "24px",
+        "createdAt": "2026-08-31T14:40:12.674Z",
+        "reason": "Agent: mobile-breakpoint step of the plate input's own size, same reg-lookup mockup exception"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "360px",
+        "createdAt": "2026-08-31T14:40:12.741Z",
+        "reason": "Agent: #reviews::before giant background quotation-mark glyph — a decorative ornament rendered via font-size, not reading text or part of the type scale"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "styles.css"
+        ],
+        "createdAt": "2026-08-31T15:26:28.399Z",
+        "reason": "Agent: .service-card::after is a bottom-edge hover-reveal accent (0 width at rest, grows to full width only on :hover) — not a resting left/right side-tab border, which is what the craft-floor ban targets. Pre-existing before this session, unchanged in substance."
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "gallery.html"
+        ],
+        "createdAt": "2026-08-31T16:04:18.088Z",
+        "reason": "Agent: #lightbox-img is a JS-populated template target for the gallery lightbox — empty src/alt until a gallery item is activated, at which point JS sets both before the lightbox becomes visible. Never rendered empty."
+      }
+    ]
+  }
+}
