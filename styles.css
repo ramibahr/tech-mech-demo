@@ -575,7 +575,7 @@ nav {
   text-align: center;
 }
 
-.services-group { margin-bottom: 48px; }
+.services-group { margin-bottom: 40px; }
 .services-group:last-child { margin-bottom: 0; }
 .services-group-title {
   font-family: var(--font-head);
