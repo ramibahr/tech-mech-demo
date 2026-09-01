@@ -1188,6 +1188,16 @@ footer {
 .plate-wrap:focus-within {
   box-shadow: 0 0 0 1px #000, 0 0 0 4px rgba(var(--red-a11y-rgb), 0.55);
 }
+.plate-wrap.error {
+  box-shadow: 0 0 0 1px #000, 0 0 0 4px rgba(var(--red-rgb), 0.55);
+}
+.reg-error {
+  min-height: 1.2em;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--red-a11y);
+  text-align: center;
+}
 .plate-flag {
   background: var(--plate-blue);
   display: flex;

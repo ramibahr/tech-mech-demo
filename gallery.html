@@ -374,16 +374,27 @@
     const regInput        = document.getElementById('reg-input');
     const regResult       = document.getElementById('reg-result');
     const regPlateDisplay = document.getElementById('reg-plate-display');
+    const regError        = document.getElementById('reg-error');
+    const plateWrap       = document.querySelector('.plate-wrap');
 
     regInput.addEventListener('input', () => {
       regInput.value = regInput.value.toUpperCase().replace(/[^A-Z0-9 ]/g, '');
+      plateWrap.classList.remove('error');
+      regError.textContent = '';
     });
 
     regInput.addEventListener('keydown', e => { if (e.key === 'Enter') regBtn.click(); });
 
     regBtn.addEventListener('click', () => {
       const plate = regInput.value.trim();
-      if (!plate) { regInput.focus(); return; }
+      if (!plate) {
+        plateWrap.classList.add('error');
+        regError.textContent = 'Enter a registration first';
+        regInput.focus();
+        return;
+      }
+      plateWrap.classList.remove('error');
+      regError.textContent = '';
       regBtn.disabled = true;
       regBtn.innerHTML = '<span class="reg-spinner"></span> Checking…';
       regResult.classList.remove('visible');
