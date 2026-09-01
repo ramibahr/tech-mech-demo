@@ -738,6 +738,14 @@ nav {
   gap: 24px;
 }
 
+/* A repeated booking CTA at the trust peak — the fixed nav's own "Book Now" drops
+   out between 1100px and the hamburger-only phone breakpoints, so reviews (the
+   page's highest-trust moment) would otherwise have no visible action nearby. */
+.reviews-cta {
+  text-align: center;
+  margin-top: clamp(40px, 6vw, 56px);
+}
+
 .review-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
