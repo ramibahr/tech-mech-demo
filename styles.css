@@ -884,7 +884,7 @@ a.contact-detail:focus-visible { border-color: rgba(var(--red-rgb),0.35); outlin
   padding: 14px 16px;
   color: var(--white);
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 16px;
   transition: border-color var(--transition), box-shadow var(--transition);
   outline: none;
   resize: vertical;
@@ -1288,6 +1288,9 @@ footer {
   width: max-content;
   animation: ribbon-scroll 50s linear infinite;
   will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .brand-set {
@@ -1311,8 +1314,8 @@ footer {
 .brand-logo:hover { opacity: 1; }
 
 @keyframes ribbon-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
 }
 
 /* ─── Lightbox ───────────────────────────────────────────── */
