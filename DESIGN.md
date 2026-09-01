@@ -243,6 +243,8 @@ Section intro headers (Services, Gallery, Reviews) are centered and capped at `6
 
 Grids vary by content density: About is a locked `1fr 1fr` two-column split (`80px` gap); Services and Reviews use auto-fill/auto-fit responsive grids (`minmax(280–300px, 1fr)`, `20–24px` gap) so card count adapts to viewport; Gallery is a deliberate asymmetric 12-column mosaic (`14px` gap) rather than a uniform grid, giving the "shop tour" imagery a curated, non-repetitive feel; Contact splits `1fr 1.1fr` (`80px` gap), favoring the form slightly.
 
+Services' 7 cards are split into 3 named subgroups (`.services-group`) — General & Diagnostics, Mechanical & Handling, Electrical & Bodywork — each with its own `.services-group-title` (Label — Small typography, a hairline `--border` bottom rule) above its own `.services-grid`, rather than one flat 7-card wall. This keeps any single visible group at 2-3 cards, matching the same ≤4-visible-options scanability standard the rest of the system already follows at decision points.
+
 Responsive behavior collapses at three breakpoints: `960px` (nav becomes a hamburger drawer, two-column grids stack to one, the About portrait image is dropped rather than shrunk, section padding steps down to `96px`), `768px` (the gallery mosaic re-flows to a simpler stacked/paired layout), and `600px` (section padding steps down to `72px`, container padding to `20px`, and component padding tightens, e.g. the contact form panel drops from `44px 40px` to `28px 20px`).
 
 ## Elevation & Depth
