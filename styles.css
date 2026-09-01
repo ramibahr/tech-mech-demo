@@ -338,6 +338,8 @@ nav {
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-slide { transition: opacity 0.4s ease; transform: none; }
+  .hero-badge::before { animation: none; }
+  .brand-ribbon-track { animation: none; }
 }
 
 /* On a narrow, tall phone viewport, cover-sizing these landscape photos crops far more
