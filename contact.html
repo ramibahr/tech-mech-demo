@@ -253,8 +253,27 @@
     if (mobileMenu.classList.contains('open')) closeMobile(); else openMobile();
   });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
+
+  /* Keeps Tab/Shift+Tab cycling within an open overlay's own focusable elements,
+     instead of letting focus escape into content still hidden behind it. */
+  function trapFocus(container, e) {
+    const focusables = container.querySelectorAll('a[href], button:not([disabled])');
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobile();
+    if (!mobileMenu.classList.contains('open')) return;
+    if (e.key === 'Escape') { closeMobile(); return; }
+    if (e.key === 'Tab') trapFocus(mobileMenu, e);
   });
 
   /* ── Active nav link ── */
