@@ -242,8 +242,8 @@ nav {
 .nav-links a.active:not(.btn) { color: var(--red-a11y); }
 
 .nav-cta {
-  padding: 10px 22px;
-  font-size: 12px;
+  padding: 13px 28px;
+  font-size: 15px;
 }
 
 .hamburger {
@@ -296,13 +296,13 @@ nav {
 }
 .mobile-menu a:hover { color: var(--red); }
 .mobile-menu a.active:not(.btn) { color: var(--red-a11y); }
-.mobile-menu .btn { margin-top: 12px; flex-shrink: 0; }
+.mobile-menu .btn { margin-top: 12px; flex-shrink: 0; padding: 18px 44px; font-size: 19px; }
 
 /* Short viewports (phone landscape): tighten the drawer so it fits without scrolling. */
 @media (max-height: 480px) {
   .mobile-menu { gap: 0; padding-top: calc(var(--announce-h) + var(--nav-h) + 8px); }
   .mobile-menu a { padding: 8px 28px; font-size: 19px; }
-  .mobile-menu .btn { margin-top: 6px; }
+  .mobile-menu .btn { margin-top: 6px; padding: 14px 36px; font-size: 16px; }
 }
 
 /* ─── Hero ──────────────────────────────────────────────── */
