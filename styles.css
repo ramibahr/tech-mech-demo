@@ -329,6 +329,13 @@ nav {
   .hero-slide { transition: opacity 0.4s ease; transform: none; }
 }
 
+/* On a narrow, tall phone viewport, cover-sizing these landscape photos crops far more
+   aggressively than on desktop (most of the width is lost to fill the height), so the
+   40%-from-top anchor tuned for a wide desktop crop can end up off-subject. Bias higher. */
+@media (max-width: 600px) {
+  .hero-slide { background-position: center 28%; }
+}
+
 /* Short viewports (phone landscape): the 620px floor plus the pinned stat bar
    pushes primary content below the fold. Drop the floor and the decorative
    stat bar so title/subhead/CTAs stay reachable without scrolling. */

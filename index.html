@@ -362,13 +362,22 @@
   const heroSlideshow = document.getElementById('hero-slideshow');
   if (heroSlideshow) {
     const slides = heroSlideshow.querySelectorAll('.hero-slide');
-    // Defer the non-first slides so they don't compete with the LCP image on first paint.
-    window.addEventListener('load', () => {
+    // Defer the non-first slides so they don't compete with the LCP image on first paint,
+    // but don't gate them on the full page `load` event — on a slow mobile connection that
+    // can take longer than the 6s crossfade interval below, so the first swap lands on a
+    // slide with no background set yet (looks like the slideshow froze). requestIdleCallback
+    // (with a short setTimeout fallback/cap) fires as soon as the browser is idle instead.
+    const loadSlideBackgrounds = () => {
       slides.forEach(s => {
         const bg = s.getAttribute('data-bg');
         if (bg) s.style.backgroundImage = `url('${bg}')`;
       });
-    });
+    };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadSlideBackgrounds, { timeout: 2000 });
+    } else {
+      setTimeout(loadSlideBackgrounds, 300);
+    }
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (slides.length > 1 && !reduceMotion) {
       let current = 0;
