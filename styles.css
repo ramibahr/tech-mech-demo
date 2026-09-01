@@ -11,16 +11,23 @@
   --bg:         #0d0d0d;
   --bg-card:    #171717;
   --bg-alt:     #111111;
+  --bg-deep:    #070707; /* footer — deepest layering shade */
+  --bg-ribbon:  #080808; /* brand ribbon strip */
+  --bg-announce:#1a0809; /* announce bar (red-tinted near-black) */
   --border:     #242424;
+  /* UK number-plate convention colors — locked to the real-world plate design, not the app palette */
+  --plate-yellow: #F5C518;
+  --plate-blue:   #003399;
+  --plate-gold:   #FFD700;
   --white:      #ffffff;
   --grey:       #9a9a9a;
   --grey-light: #cccccc;
   --announce-h: 36px;
   --nav-h:      76px;
   --radius:     10px;
-  --font-head:  'Big Shoulders Display', sans-serif;
+  --font-head:  'Bebas Neue', sans-serif;
   --font-logo:  'Barlow Condensed', sans-serif;
-  --font-body:  'Montserrat', sans-serif;
+  --font-body:  'Work Sans', sans-serif;
   --transition: 0.3s ease;
   --section-py: 120px;
 }
@@ -159,7 +166,7 @@ ul  { list-style: none; }
   top: 0; left: 0; right: 0;
   z-index: 101;
   height: var(--announce-h);
-  background: #1a0809;
+  background: var(--bg-announce);
   border-bottom: 1px solid rgba(var(--red-rgb),0.18);
   display: flex;
   align-items: center;
@@ -179,6 +186,10 @@ ul  { list-style: none; }
   color: var(--white);
   font-weight: 500;
   transition: color var(--transition);
+  /* Enlarge the tap target without shifting layout — the 36px announce bar is too short
+     for a full 44px target, so this is a partial mitigation, not a full fix. */
+  padding: 10px 4px;
+  margin: -10px -4px;
 }
 .announce-inner a:hover { color: var(--red); }
 .announce-sep {
@@ -436,6 +447,9 @@ nav {
   font-weight: 700;
   color: var(--red);
   line-height: 1;
+  /* "All Makes" is text, not a digit — Bebas Neue has no distinct lowercase, so make
+     the always-caps rendering explicit rather than relying on the font's fallback behavior. */
+  text-transform: uppercase;
 }
 .hero-stat-label {
   font-size: 10px;
@@ -695,7 +709,7 @@ nav {
   color: rgba(var(--red-rgb),0.04);
   line-height: 1;
   pointer-events: none;
-  select: none;
+  user-select: none;
 }
 
 .reviews-header {
@@ -763,6 +777,9 @@ nav {
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.5px;
+  /* Bebas Neue has no distinct lowercase forms — make the always-caps
+     rendering explicit rather than relying on the font's own fallback behavior. */
+  text-transform: uppercase;
 }
 .review-source {
   font-size: 12px;
@@ -916,7 +933,7 @@ a.contact-detail:focus-visible { border-color: rgba(var(--red-rgb),0.35); outlin
 
 /* ─── Footer ────────────────────────────────────────────── */
 footer {
-  background: #070707;
+  background: var(--bg-deep);
   border-top: 1px solid var(--border);
   padding: 64px 0 32px;
 }
@@ -1038,9 +1055,12 @@ footer {
   gap: 24px;
 }
 .footer-legal a {
+  display: inline-block;
   font-size: 12px;
   color: var(--grey);
   transition: color var(--transition);
+  padding: 12px 0;
+  margin: -12px 0;
 }
 .footer-legal a:hover { color: var(--white); }
 
@@ -1147,7 +1167,7 @@ footer {
   box-shadow: 0 0 0 1px #000, 0 0 0 4px rgba(var(--red-a11y-rgb), 0.55);
 }
 .plate-flag {
-  background: #003399;
+  background: var(--plate-blue);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1156,11 +1176,11 @@ footer {
   gap: 2px;
   flex-shrink: 0;
 }
-.flag-star { font-size: 7px; color: #FFD700; line-height: 1; }
+.flag-star { font-size: 7px; color: var(--plate-gold); line-height: 1; }
 .flag-gb   { font-family: var(--font-head); font-size: 11px; font-weight: 700; color: #fff; letter-spacing: 0.5px; }
 .plate-input {
   flex: 1;
-  background: #F5C518;
+  background: var(--plate-yellow);
   border: none;
   outline: none;
   font-family: 'Arial Black', 'Arial', sans-serif;
@@ -1225,6 +1245,9 @@ footer {
   justify-content: space-between;
 }
 .reg-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-head);
   font-size: 13px;
   font-weight: 600;
@@ -1232,8 +1255,20 @@ footer {
   letter-spacing: 1.5px;
   color: #fff;
 }
+.reg-demo-tag {
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 4px;
+  padding: 3px 8px;
+}
 .reg-plate-badge {
-  background: #F5C518;
+  background: var(--plate-yellow);
   color: #000;
   font-family: 'Arial Black', 'Arial', sans-serif;
   font-size: 12px;
@@ -1266,7 +1301,6 @@ footer {
   margin-top: 14px;
   font-size: 11.5px;
   color: var(--grey);
-  opacity: 0.6;
   text-align: center;
 }
 @media (max-width: 600px) {
@@ -1280,7 +1314,7 @@ footer {
 
 /* ─── Brand Ribbon ─────────────────────────────────────────── */
 .brand-ribbon {
-  background: #080808;
+  background: var(--bg-ribbon);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   overflow: hidden;

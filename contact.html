@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -50,14 +50,14 @@
 
       <a href="contact.html" class="btn btn-primary nav-cta">Book Now</a>
 
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 </nav>
 
-<div class="mobile-menu" id="mobile-menu">
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html">Services</a>
@@ -129,7 +129,7 @@
       </div>
 
       <div class="contact-form-wrap fade-in fade-in-d2">
-        <div class="form-title">Send a Message</div>
+        <h2 class="form-title">Send a Message</h2>
         <p class="form-subtitle">Fill in the details below and we'll be in touch shortly.</p>
 
         <div class="simplybook-note">
@@ -140,17 +140,17 @@
         <form id="booking-form" novalidate>
           <div class="form-group">
             <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="John Smith" required />
+            <input type="text" id="name" name="name" placeholder="John Smith" required />
           </div>
 
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="+44 7XXX XXX XXX" required />
+            <input type="tel" id="phone" name="phone" placeholder="+44 7XXX XXX XXX" required />
           </div>
 
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" placeholder="Tell us about your vehicle and what needs doing..." required></textarea>
+            <textarea id="message" name="message" placeholder="Tell us about your vehicle and what needs doing..." required></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary form-submit">
@@ -230,17 +230,32 @@
   /* ── Hamburger ── */
   const hamburger  = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
-    const open = hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
+  let menuLastFocused = null;
+  function openMobile() {
+    menuLastFocused = document.activeElement;
+    hamburger.classList.add('open');
+    mobileMenu.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close menu');
+    document.body.style.overflow = 'hidden';
+    const firstLink = mobileMenu.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
   function closeMobile() {
     hamburger.classList.remove('open');
     mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
     document.body.style.overflow = '';
+    if (menuLastFocused) menuLastFocused.focus();
   }
+  hamburger.addEventListener('click', () => {
+    if (mobileMenu.classList.contains('open')) closeMobile(); else openMobile();
+  });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobile();
+  });
 
   /* ── Active nav link ── */
   (function () {
@@ -272,13 +287,22 @@
   const heroSlideshow = document.getElementById('hero-slideshow');
   if (heroSlideshow) {
     const slides = heroSlideshow.querySelectorAll('.hero-slide');
-    // Defer the non-first slides so they don't compete with the LCP image on first paint.
-    window.addEventListener('load', () => {
+    // Defer the non-first slides so they don't compete with the LCP image on first paint,
+    // but don't gate them on the full page `load` event — on a slow mobile connection that
+    // can take longer than the 6s crossfade interval below, so the first swap lands on a
+    // slide with no background set yet (looks like the slideshow froze). requestIdleCallback
+    // (with a short setTimeout fallback/cap) fires as soon as the browser is idle instead.
+    const loadSlideBackgrounds = () => {
       slides.forEach(s => {
         const bg = s.getAttribute('data-bg');
         if (bg) s.style.backgroundImage = `url('${bg}')`;
       });
-    });
+    };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadSlideBackgrounds, { timeout: 2000 });
+    } else {
+      setTimeout(loadSlideBackgrounds, 300);
+    }
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (slides.length > 1 && !reduceMotion) {
       let current = 0;
@@ -336,9 +360,8 @@
       const btn = e.target.querySelector('.form-submit');
       const orig = btn.innerHTML;
       btn.innerHTML = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Message Sent`;
-      btn.style.background = '#16a34a';
       btn.disabled = true;
-      setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 3500);
+      setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; }, 3500);
     });
   }
 

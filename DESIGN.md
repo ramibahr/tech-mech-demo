@@ -8,97 +8,100 @@ colors:
   near-black: "#0d0d0d"
   charcoal-card: "#171717"
   charcoal-alt: "#111111"
+  near-black-deep: "#070707"
+  near-black-ribbon: "#080808"
+  near-black-announce: "#1a0809"
   graphite-border: "#242424"
   white: "#ffffff"
   steel-grey: "#9a9a9a"
   fog-grey: "#cccccc"
 typography:
   display:
-    fontFamily: "Big Shoulders Display, sans-serif"
+    fontFamily: "Bebas Neue, sans-serif"
     fontSize: "clamp(3rem, 9vw, 6rem)"
     fontWeight: 700
     lineHeight: 0.95
     letterSpacing: "2px"
   headline:
-    fontFamily: "Big Shoulders Display, sans-serif"
+    fontFamily: "Bebas Neue, sans-serif"
     fontSize: "clamp(2rem, 5vw, 3rem)"
     fontWeight: 700
     lineHeight: 1.08
     letterSpacing: "1px"
   headline-sm:
-    fontFamily: "Big Shoulders Display, sans-serif"
+    fontFamily: "Bebas Neue, sans-serif"
     fontSize: "clamp(26px, 5vw, 40px)"
     fontWeight: 700
     lineHeight: 1.1
     letterSpacing: "1px"
   title-lg:
-    fontFamily: "Big Shoulders Display, sans-serif"
+    fontFamily: "Bebas Neue, sans-serif"
     fontSize: "22px"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "1px"
   title:
-    fontFamily: "Big Shoulders Display, sans-serif"
+    fontFamily: "Bebas Neue, sans-serif"
     fontSize: "19px"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "0.5px"
   title-sm:
-    fontFamily: "Big Shoulders Display, sans-serif"
+    fontFamily: "Bebas Neue, sans-serif"
     fontSize: "14px"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "0.5px"
   body-lg:
-    fontFamily: "Montserrat, sans-serif"
+    fontFamily: "Work Sans, sans-serif"
     fontSize: "17px"
     fontWeight: 300
     lineHeight: 1.75
     letterSpacing: "normal"
   body:
-    fontFamily: "Montserrat, sans-serif"
+    fontFamily: "Work Sans, sans-serif"
     fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.65
     letterSpacing: "normal"
   body-sm:
-    fontFamily: "Montserrat, sans-serif"
+    fontFamily: "Work Sans, sans-serif"
     fontSize: "14px"
     fontWeight: 400
     lineHeight: 1.7
     letterSpacing: "normal"
   body-xs:
-    fontFamily: "Montserrat, sans-serif"
+    fontFamily: "Work Sans, sans-serif"
     fontSize: "13px"
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: "normal"
   label:
-    fontFamily: "Big Shoulders Display, sans-serif"
+    fontFamily: "Bebas Neue, sans-serif"
     fontSize: "12px"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "1.5px"
   label-sm:
-    fontFamily: "Big Shoulders Display, sans-serif"
+    fontFamily: "Bebas Neue, sans-serif"
     fontSize: "13px"
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: "1.5px"
   label-xs:
-    fontFamily: "Big Shoulders Display, sans-serif"
+    fontFamily: "Bebas Neue, sans-serif"
     fontSize: "11px"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "1.5px"
   label-2xs:
-    fontFamily: "Big Shoulders Display, sans-serif"
+    fontFamily: "Bebas Neue, sans-serif"
     fontSize: "10px"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "1.5px"
   stat:
-    fontFamily: "Big Shoulders Display, sans-serif"
+    fontFamily: "Bebas Neue, sans-serif"
     fontSize: "2rem"
     fontWeight: 700
     lineHeight: 1
@@ -156,13 +159,13 @@ components:
 
 **Creative North Star: "The Diagnostic Bay"**
 
-Tech-Mech reads as a workshop instrument panel, not a marketing brochure: a near-black canvas (`#0d0d0d`) that recedes so completely that the single accent — Diagnostic Red (`#e01e24`) — reads with the authority of a warning light on a scan tool. The system is industrial and disciplined: condensed uppercase Big Shoulders Display headings, generous 120px section rhythm, flat dark-on-darker card surfaces distinguished by hairline borders rather than shadows, and controls that stay quiet until touched. Confidence comes from control, not noise — the palette never competes with the red, and the red never appears without reason (a CTA, a stat, an active state, a safety cue).
+Tech-Mech reads as a workshop instrument panel, not a marketing brochure: a near-black canvas (`#0d0d0d`) that recedes so completely that the single accent — Diagnostic Red (`#e01e24`) — reads with the authority of a warning light on a scan tool. The system is industrial and disciplined: condensed all-caps Bebas Neue headings, generous 120px section rhythm, flat dark-on-darker card surfaces distinguished by hairline borders rather than shadows, and controls that stay quiet until touched. Confidence comes from control, not noise — the palette never competes with the red, and the red never appears without reason (a CTA, a stat, an active state, a safety cue).
 
 No anti-reference has been confirmed yet; this system should keep favoring instrument-panel restraint over decorative flourish as it's extended.
 
 **Key Characteristics:**
 - Near-black canvas with a single, disciplined red signal color
-- Condensed, uppercase Big Shoulders Display for anything structural (headings, labels, nav, buttons)
+- Condensed, all-caps Bebas Neue for anything structural (headings, labels, nav, buttons)
 - Flat surfaces at rest; depth and red-tinted glow appear only as hover feedback
 - Generous, consistent 120px vertical section rhythm; tight, precise component padding
 - A dedicated logo typeface (Barlow Condensed) that never leaks into body UI
@@ -180,12 +183,15 @@ The palette is built from one signal color against a near-black neutral scale �
 - **Near-Black** (`#0d0d0d`): Base page background.
 - **Charcoal Card** (`#171717`): Elevated surface fill for cards, service tiles, review tiles, the contact form panel.
 - **Charcoal Alt** (`#111111`): Alternating section background (About, Gallery, Contact) that separates sections without a hard color break; also the fill for form inputs.
+- **Near-Black — Deep** (`#070707`): The footer's own background — one step darker than the base Near-Black, marking it as the page's floor.
+- **Near-Black — Ribbon** (`#080808`): The manufacturer brand-ribbon strip's background — sits between Near-Black and Deep.
+- **Near-Black — Announce** (`#1a0809`): The fixed announce bar's background — a faint red tint mixed into the near-black to tie it visually to the Diagnostic Red system despite being the page's darkest, most utilitarian strip.
 - **Graphite Border** (`#242424`): The hairline border that does the separating work shadows would otherwise do.
 - **White** (`#ffffff`): Primary text on dark, primary button text.
 - **Steel Grey** (`#9a9a9a`): Muted/secondary text — stat labels, descriptions, footer copy.
 - **Fog Grey** (`#cccccc`): Body copy that needs more presence than Steel Grey (hero subhead, about body, review quotes).
 
-Two functional one-offs sit outside this core palette, each locked to a single expected context: an amber `#f59e0b` for the 5-star rating glyphs (the color users expect from a star rating), and WhatsApp's own brand green `#25d366` for the WhatsApp contact button. Neither should spread beyond that one use.
+Three functional one-offs sit outside this core palette, each locked to a single expected context: an amber `#f59e0b` for the 5-star rating glyphs (the color users expect from a star rating), WhatsApp's own brand green `#25d366` for the WhatsApp contact button, and the real UK number-plate colors (`#F5C518` yellow, `#003399` GB-strip blue, `#FFD700` star gold) for the Reg Lookup tool's plate graphic — a visitor expects that element to look like an actual number plate, not a themed one. None of these should spread beyond their one use.
 
 ### Named Rules
 **The Small-Text Red Rule.** `#e01e24` is for large/bold text and non-text surfaces (icons, borders, backgrounds, shadows) only. Any time red is the *color of small text* — a badge, an active nav state, a status value — use Diagnostic Red — Accessible (`#ff525a`) instead, so it clears 4.5:1 contrast on the near-black backgrounds.
@@ -194,20 +200,20 @@ Two functional one-offs sit outside this core palette, each locked to a single e
 
 ## Typography
 
-**Display Font:** Big Shoulders Display (with sans-serif fallback)
-**Body Font:** Montserrat (with sans-serif fallback)
+**Display Font:** Bebas Neue (with sans-serif fallback) — free on Google Fonts, single regular weight only (no bold cut; see Named Rules below).
+**Body Font:** Work Sans (with sans-serif fallback), weights 300–600.
 **Wordmark Font:** Barlow Condensed — reserved exclusively for the logo mark (italic primary line + tracked-out secondary line); never used for headings, body, or UI labels.
 
-*Provenance note:* this pairing was chosen to echo the structural/reading split of pbwl.uk's reference layout — a bold condensed display face carrying headings, labels, and buttons against a calmer humanist sans for body copy. pbwl.uk itself uses two commercially licensed, self-hosted faces (Uncage for display, Gotham for body) that aren't available on Google Fonts and can't be legally sourced from their site; Big Shoulders Display and Montserrat are free substitutes chosen for the same structural role and character, not a pixel match to those faces.
+*Provenance note:* this pairing replaced an earlier Big Shoulders Display / Montserrat combination (itself a substitute for pbwl.uk's unlicensed Uncage/Gotham reference) on explicit direction — a deliberate creative choice, not a licensing workaround.
 
-**Character:** Big Shoulders Display's condensed, uppercase, tightly-tracked geometry gives every structural element (headings, nav, buttons, labels) the feel of stenciled workshop signage; Montserrat carries all reading copy in a calmer, proportionally-spaced register so long-form trust-building copy stays easy to read against the dark ground.
+**Character:** Bebas Neue's tall, extremely condensed, all-caps-only geometry gives every structural element (headings, nav, buttons, labels) a stenciled, industrial poster feel — sharper and more graphic than the previous Big Shoulders Display, with no lowercase forms at all. Work Sans carries all reading copy in a calmer, humanist, proportionally-spaced register so long-form trust-building copy stays easy to read against the dark ground.
 
 ### Hierarchy
 - **Display** (700, `clamp(3rem, 9vw, 6rem)`, line-height 0.95): Hero title only. Uppercase, 2px tracking, red used on the emphasized word.
 - **Headline** (700, `clamp(2rem, 5vw, 3rem)`, line-height 1.08): Section titles (About, Services, Gallery, Reviews, Contact). Uppercase, 1px tracking, red on the emphasized word.
 - **Headline — Small** (700, `clamp(26px, 5vw, 40px)`, line-height 1.1): The Reg Lookup panel's own heading — same headline language, tuned for a narrower 680px column.
 - **Title — Large** (600, 22px, line-height 1.2): Contact form title. The upper step of the Title family.
-- **Title** (600, 19px, line-height 1.2): Service names, review author names. The default step.
+- **Title** (600, 19px, line-height 1.2): Service names, review author names. The default step. Review author names ("James D.") carry an explicit `text-transform: uppercase` — Bebas Neue has no distinct lowercase forms, so this makes the always-caps rendering deliberate rather than an accidental font fallback.
 - **Title — Small** (600, 14px, line-height 1.2): About pillar titles, review-avatar initials — Title-family treatment at micro scale.
 - **Body — Large** (300, 17px, line-height 1.75): Hero subhead. Also reused, coincidentally at the same size, for the review-card star row.
 - **Body** (400, 16px, line-height 1.65): Primary paragraph copy — about body.
@@ -217,13 +223,15 @@ Two functional one-offs sit outside this core palette, each locked to a single e
 - **Label — Small** (500, 13px, letter-spacing 1.5px, uppercase): Nav links, footer pill buttons, reg-card title bar.
 - **Label — Extra Small** (600, 11px, letter-spacing 1.5px, uppercase): Hero badge, about-image badge label, form field labels, reg field labels.
 - **Label — 2XS** (600, 10px, letter-spacing 1.5px, uppercase): Logo secondary line, hero stat labels, contact detail labels, tightest mobile step of Label — Extra Small.
-- **Stat** (700, `2rem`, line-height 1, red): The hero stat-bar numbers and the about-image badge number — one shared step; these two contexts must always match.
+- **Stat** (700, `2rem`, line-height 1, red): The hero stat-bar numbers and the about-image badge number — one shared step; these two contexts must always match. One stat value ("All Makes") is text rather than a digit and carries an explicit `text-transform: uppercase` for the same reason as review author names above.
 
 ### Named Rules
 **The No-Eyebrow Rule.** No kicker/eyebrow label sits above a section heading. The heading carries its own weight — delete the label rather than adding one back, even when a reference layout uses one.
 
 ### Named Rules
-**The All-Caps Structure Rule.** Anything that is structural chrome rather than reading content — nav, buttons, labels, section eyebrows, stat labels — is Big Shoulders Display, uppercase, and tracked out. Anything meant to be read at length is Montserrat, sentence case, untracked.
+**The All-Caps Structure Rule.** Anything that is structural chrome rather than reading content — nav, buttons, labels, section eyebrows, stat labels — is Bebas Neue, uppercase, and tracked out. Anything meant to be read at length is Work Sans, sentence case, untracked. This is now a hard constraint, not just a style choice: Bebas Neue has no true lowercase forms, so any mixed-case content assigned to it renders as caps regardless of source text — check new copy in a head-font role for readability before adding it (a long sentence-case tagline, for instance, would read poorly force-capitalized and belongs in Work Sans instead).
+
+**The Single-Weight Display Rule.** Bebas Neue ships one weight (400/regular) on Google Fonts — there is no true bold cut. Existing `font-weight: 500/600/700` declarations on head-font elements are harmless (browsers either ignore the request or apply synthetic/faux bold) but no longer select a genuinely different weight the way they did with Big Shoulders Display's real 400–700 range. Weight is no longer a lever for hierarchy within the head-font role — use size, tracking, and color instead.
 
 ## Layout
 
@@ -261,7 +269,7 @@ Controls throughout are precise and restrained: sharp, deliberate hover feedback
 
 ### Buttons
 - **Shape:** `10px` radius (`--radius`), matching the container language, not the pill language.
-- **Primary:** Diagnostic Red fill, white text, `14px 32px` padding, Label typography (Big Shoulders Display, uppercase, tracked).
+- **Primary:** Diagnostic Red fill, white text, `14px 32px` padding, Label typography (Bebas Neue, uppercase, tracked).
 - **Hover / Focus:** Fill darkens to Diagnostic Red — Deep; lifts `2px` (`translateY(-2px)`); gains the Red Glow shadow.
 - **Outline (secondary):** Transparent fill, `2px` white-at-20%-opacity border, white text; on hover the border and text both shift to Diagnostic Red and it lifts `2px` (no fill change — stays outline).
 - **Footer Pill CTAs (WhatsApp / Phone):** The one place buttons take the pill shape (`50px` radius) instead of `10px` — a deliberate signal that these are direct-contact actions, not form submissions. Each is tinted toward its own brand color at low opacity at rest (WhatsApp green / Diagnostic Red) and fills solid on hover with a matching colored glow.
@@ -276,12 +284,12 @@ Controls throughout are precise and restrained: sharp, deliberate hover feedback
 ### Inputs / Fields
 - **Style:** Charcoal Alt fill, `1px` Graphite Border, `8px` radius (one step tighter than cards), `14px 16px` padding, white text, Steel-Grey-adjacent placeholder (`#484848`).
 - **Focus:** Border shifts to Diagnostic Red and gains a soft red focus ring (`box-shadow: 0 0 0 3px rgba(224,30,36,0.1)`) — no border-width change, ring only.
-- **Labels:** Label typography (Big Shoulders Display, uppercase, `11px`, tracked, Steel Grey) sits above each field, never inline/floating.
+- **Labels:** Label typography (Bebas Neue, uppercase, `11px`, tracked, Steel Grey) sits above each field, never inline/floating.
 
 ### Navigation
 - **Style:** Fixed, glassmorphic — near-black at 92% opacity with a `14px` backdrop blur — sitting below a separate, darker announcement bar (`#1a0809`) that carries phone/hours info. Every page (Home, About, Services, Gallery, Contact) shares the identical nav; the logo always links back to `index.html`.
 - **Layout:** Three independent elements spread edge-to-edge across the header via `justify-content: space-between` — the logo flush left, the four page links (Home/About/Services/Gallery) as their own group, and the Book Now CTA flush right — so the header uses its full width instead of clustering everything toward one side. Below `960px`, the link group and CTA both hide in favor of the hamburger.
-- **Typography:** Label style (Big Shoulders Display, uppercase, tracked), `16px`/600 weight/`1.75px` tracking — bolder and larger than the `13px`/500-weight Label — Small role used elsewhere (footer pills, reg-card title bar), so the primary nav reads with the same visual weight as the logo wordmark and Book Now button rather than thinner than both. Links sit on a `44px` gap.
+- **Typography:** Label style (Bebas Neue, uppercase, tracked), `16px`/`1.75px` tracking, larger than the `13px` Label — Small role used elsewhere (footer pills, reg-card title bar), so the primary nav reads with the same visual weight as the logo wordmark and Book Now button rather than thinner than both. Links sit on a `44px` gap.
 - **States:** Links go from Steel/Fog Grey to Diagnostic Red on hover; the current page's link is the same Diagnostic Red, set via a small shared script that matches `location.pathname` against each link's `href` — no underline, no background change.
 - **Mobile:** Below `1100px` (widened from the original `960px` to give the 5-item nav room before crowding), the hamburger opens a full-screen overlay drawer (`rgba(10,10,10,0.98)`, `24px` backdrop blur) with large centered links and body scroll locked while open — a deliberate step up from a dropdown panel, matching the multi-page structure's own navigation pattern. The primary CTA link keeps its solid-button treatment inside the drawer; any link click closes it. The drawer reserves the fixed header's height as top padding (so links never render underneath the announcement bar/nav) and scrolls internally if content ever exceeds the viewport; below `500px` of viewport height (landscape phones) link padding and font-size tighten so the full menu fits without scrolling.
 
@@ -298,7 +306,7 @@ Home's hero background is a stack of full-bleed images (`.hero-slide`), one `.ac
 - **Do** keep Diagnostic Red to signal-carrying elements only (CTAs, active states, key numbers) — never a background fill for large areas.
 - **Do** use `10px` radius for anything that holds content, and reserve full-pill/circle radius for badges, avatars, and direct-contact buttons.
 - **Do** let shadows appear only in response to hover or on the highest-intent controls — nothing casts a shadow at rest.
-- **Do** keep Big Shoulders Display uppercase for structural chrome (nav, buttons, labels, eyebrows) and Montserrat sentence-case for anything meant to be read at length.
+- **Do** keep Bebas Neue uppercase for structural chrome (nav, buttons, labels, eyebrows) and Work Sans sentence-case for anything meant to be read at length.
 
 ### Don't:
 - **Don't** introduce a second accent color alongside Diagnostic Red — new emphasis needs earn red or don't get emphasis.

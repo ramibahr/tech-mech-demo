@@ -40,6 +40,7 @@ This is a real business, but the current site content was built with placeholder
 - Contact details are placeholders: phone `+44 7XXX XXX XXX`, email `hello@techmech.co.uk`, address `123 Garage Lane, Your Town, AB1 2CD`.
 - Stats in the hero ("12+ Years Experience", "4,000+ Vehicles Serviced", "5★ Google Rating") are unconfirmed — need real figures from the business.
 - The three testimonials (initials JD, SM, RK) are placeholder reviews, not real customer quotes.
+- Footer "Privacy Policy" and "Terms" links point to `#` on all 5 pages — no real legal pages exist yet; these need actual policy content before launch, not placeholder text invented to fill the link.
 
 ## Product Principles
 

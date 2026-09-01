@@ -8,8 +8,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80" />
 </head>
 
 <body class="has-hero">
@@ -50,14 +51,14 @@
 
       <a href="contact.html" class="btn btn-primary nav-cta">Book Now</a>
 
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 </nav>
 
-<div class="mobile-menu" id="mobile-menu">
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html">Services</a>
@@ -69,10 +70,10 @@
 <!-- ─── Hero ────────────────────────────────────────────────── -->
 <section id="hero">
   <div class="hero-slideshow" id="hero-slideshow">
-    <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80')"></div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1920&q=80"></div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1920&q=80"></div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1920&q=80"></div>
+    <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80')"></div>
+    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=80"></div>
+    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1200&q=80"></div>
+    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80"></div>
   </div>
   <div class="hero-overlay"></div>
 
@@ -144,7 +145,7 @@
       <div class="reg-result" id="reg-result">
         <div class="reg-card">
           <div class="reg-card-header">
-            <span class="reg-card-title">Vehicle Details</span>
+            <span class="reg-card-title">Vehicle Details <span class="reg-demo-tag">Example Data</span></span>
             <span class="reg-plate-badge" id="reg-plate-display"></span>
           </div>
           <div class="reg-row"><span class="reg-label">Make</span><span class="reg-value">FORD</span></div>
@@ -155,7 +156,7 @@
           <div class="reg-row"><span class="reg-label">MOT Expiry</span><span class="reg-value warn">14 March 2026</span></div>
           <div class="reg-row"><span class="reg-label">Tax Status</span><span class="reg-value">Taxed</span></div>
         </div>
-        <p class="reg-disclaimer">Live vehicle lookup coming soon</p>
+        <p class="reg-disclaimer">Example result shown for any plate — live DVLA vehicle lookup coming soon</p>
       </div>
     </div>
   </div>
@@ -220,7 +221,7 @@
         <div class="review-author">
           <div class="review-avatar">JD</div>
           <div>
-            <div class="review-name">James D.</div>
+            <h3 class="review-name">James D.</h3>
             <div class="review-source">Google Review</div>
           </div>
         </div>
@@ -232,7 +233,7 @@
         <div class="review-author">
           <div class="review-avatar">SM</div>
           <div>
-            <div class="review-name">Sarah M.</div>
+            <h3 class="review-name">Sarah M.</h3>
             <div class="review-source">Google Review</div>
           </div>
         </div>
@@ -244,7 +245,7 @@
         <div class="review-author">
           <div class="review-avatar">RK</div>
           <div>
-            <div class="review-name">Ryan K.</div>
+            <h3 class="review-name">Ryan K.</h3>
             <div class="review-source">Google Review</div>
           </div>
         </div>
@@ -320,17 +321,32 @@
   /* ── Hamburger ── */
   const hamburger  = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
-    const open = hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
+  let menuLastFocused = null;
+  function openMobile() {
+    menuLastFocused = document.activeElement;
+    hamburger.classList.add('open');
+    mobileMenu.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close menu');
+    document.body.style.overflow = 'hidden';
+    const firstLink = mobileMenu.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
   function closeMobile() {
     hamburger.classList.remove('open');
     mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
     document.body.style.overflow = '';
+    if (menuLastFocused) menuLastFocused.focus();
   }
+  hamburger.addEventListener('click', () => {
+    if (mobileMenu.classList.contains('open')) closeMobile(); else openMobile();
+  });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobile();
+  });
 
   /* ── Active nav link ── */
   (function () {
@@ -435,9 +451,8 @@
       const btn = e.target.querySelector('.form-submit');
       const orig = btn.innerHTML;
       btn.innerHTML = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Message Sent`;
-      btn.style.background = '#16a34a';
       btn.disabled = true;
-      setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 3500);
+      setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; }, 3500);
     });
   }
 
