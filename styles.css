@@ -387,7 +387,7 @@ nav {
   text-transform: uppercase;
   color: var(--red-a11y);
   font-weight: 600;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 .hero-badge::before {
   content: '';
@@ -408,7 +408,7 @@ nav {
   line-height: 0.95;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 .hero-title span { color: var(--red); }
 
@@ -417,7 +417,7 @@ nav {
   font-weight: 300;
   color: var(--grey-light);
   max-width: 540px;
-  margin-bottom: 44px;
+  margin-bottom: 56px;
   line-height: 1.75;
 }
 
@@ -483,7 +483,7 @@ nav {
   font-size: 16px;
   color: var(--grey-light);
   line-height: 1.8;
-  margin-top: 20px;
+  margin-top: 28px;
   margin-bottom: 40px;
 }
 
@@ -597,7 +597,7 @@ nav {
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 28px;
 }
 
 .service-card {
@@ -667,7 +667,7 @@ nav {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 14px;
+  gap: 20px;
 }
 
 .gallery-item {
@@ -740,7 +740,7 @@ nav {
 .reviews-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  gap: 32px;
 }
 
 /* A repeated booking CTA at the trust peak — the fixed nav's own "Book Now" drops
@@ -830,7 +830,7 @@ nav {
 .contact-info p {
   color: var(--grey);
   font-size: 15px;
-  margin-top: 16px;
+  margin-top: 24px;
   margin-bottom: 36px;
   line-height: 1.75;
 }
@@ -887,7 +887,7 @@ a.contact-detail:focus-visible { border-color: rgba(var(--red-rgb),0.35); outlin
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 }
 
 .form-subtitle {
@@ -1152,7 +1152,7 @@ footer {
 /* ─── Reg Lookup ────────────────────────────────────────────── */
 #reg-lookup {
   background: var(--bg-alt);
-  padding: 80px 0;
+  padding: var(--section-py) 0;
   border-bottom: 1px solid var(--border);
 }
 .reg-lookup-inner {
@@ -1166,7 +1166,7 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 .reg-lookup-inner > p {
   color: var(--grey);
@@ -1341,7 +1341,6 @@ footer {
   text-align: center;
 }
 @media (max-width: 600px) {
-  #reg-lookup { padding: 60px 0; }
   .reg-form { flex-direction: column; }
   .plate-wrap { max-width: 100%; }
   .reg-btn { justify-content: center; padding: 16px; }
@@ -1355,7 +1354,7 @@ footer {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   overflow: hidden;
-  padding: 20px 0;
+  padding: 40px 0;
   position: relative;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
   mask-image:         linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
