@@ -308,17 +308,20 @@ nav {
 /* ─── Hero ──────────────────────────────────────────────── */
 #hero {
   position: relative;
-  height: 100svh;
-  min-height: 620px;
+  /* min-height, not height: a fixed height combined with overflow:hidden clipped the
+     hero-badge and other content on shorter laptop viewports where 100svh wasn't tall
+     enough to fit badge + title + subhead + actions. As a floor, the section instead
+     grows to fit its content, so nothing is ever hidden. */
+  min-height: max(100svh, 620px);
   display: flex;
   align-items: center;
-  overflow: hidden;
   padding-top: calc(var(--announce-h) + var(--nav-h));
 }
 
 .hero-slideshow {
   position: absolute;
   inset: 0;
+  overflow: hidden;
 }
 
 .hero-slide {
