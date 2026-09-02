@@ -60,6 +60,28 @@ ul  { list-style: none; }
   border: 0;
 }
 
+/* Hidden until keyboard-focused, so it doesn't affect sighted mouse users but lets
+   keyboard/screen-reader users jump past the announce bar + full nav on every page. */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 999;
+  background: var(--red);
+  color: var(--white);
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
 .container {
   width: 100%;
   max-width: 1160px;
@@ -191,7 +213,7 @@ ul  { list-style: none; }
   padding: 10px 4px;
   margin: -10px -4px;
 }
-.announce-inner a:hover { color: var(--red); }
+.announce-inner a:hover { color: var(--red-a11y); }
 .announce-sep {
   margin: 0 14px;
   color: rgba(255,255,255,0.22);
@@ -238,7 +260,7 @@ nav {
   color: var(--grey-light);
   transition: color var(--transition);
 }
-.nav-links a:hover { color: var(--red); }
+.nav-links a:hover { color: var(--red-a11y); }
 .nav-links a.active:not(.btn) { color: var(--red-a11y); }
 
 .nav-cta {
@@ -294,7 +316,7 @@ nav {
   padding: 14px 28px;
   transition: color var(--transition);
 }
-.mobile-menu a:hover { color: var(--red); }
+.mobile-menu a:hover { color: var(--red-a11y); }
 .mobile-menu a.active:not(.btn) { color: var(--red-a11y); }
 .mobile-menu .btn { margin-top: 12px; flex-shrink: 0; padding: 18px 44px; font-size: 19px; }
 
@@ -942,7 +964,7 @@ a.contact-detail:focus-visible { border-color: rgba(var(--red-rgb),0.35); outlin
   -webkit-appearance: none;
 }
 .form-group input::placeholder,
-.form-group textarea::placeholder { color: #484848; }
+.form-group textarea::placeholder { color: #808080; }
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--red);
@@ -1052,7 +1074,7 @@ footer {
   color: var(--grey);
   transition: color var(--transition);
 }
-.footer-links a:hover { color: var(--red); }
+.footer-links a:hover { color: var(--red-a11y); }
 
 .footer-hours li {
   font-size: 13px;
@@ -1086,8 +1108,8 @@ footer {
   font-size: 12px;
   color: var(--grey);
   transition: color var(--transition);
-  padding: 12px 0;
-  margin: -12px 0;
+  padding: 16px 0;
+  margin: -16px 0;
 }
 .footer-legal a:hover { color: var(--white); }
 

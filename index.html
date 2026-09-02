@@ -18,6 +18,8 @@
 
 <body class="has-hero">
 
+<a class="skip-link" href="#main-content">Skip to content</a>
+
 <!-- ─── Announce Bar ────────────────────────────────────────── -->
 <div class="announce-bar">
   <div class="announce-inner">
@@ -69,6 +71,8 @@
   <a href="contact.html">Contact</a>
   <a href="contact.html" class="btn btn-primary">Book Now</a>
 </div>
+
+<main id="main-content">
 
 <!-- ─── Hero ────────────────────────────────────────────────── -->
 <section id="hero">
@@ -146,7 +150,7 @@
         <button class="reg-btn" id="reg-btn" type="button">Check Vehicle</button>
       </div>
       <p class="reg-error" id="reg-error" aria-live="polite"></p>
-      <div class="reg-result" id="reg-result">
+      <div class="reg-result" id="reg-result" role="status" aria-live="polite">
         <div class="reg-card">
           <div class="reg-card-header">
             <span class="reg-card-title">Vehicle Details <span class="reg-demo-tag">Example Data</span></span>
@@ -263,6 +267,8 @@
 
   </div>
 </section>
+
+</main>
 
 <!-- ─── Footer ────────────────────────────────────────────────── -->
 <footer>

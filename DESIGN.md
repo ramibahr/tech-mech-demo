@@ -284,7 +284,7 @@ Controls throughout are precise and restrained: sharp, deliberate hover feedback
 - **Internal Padding:** `36px 30–32px` for service/review cards; `44px 40px` for the larger contact form panel (tightening to `28px 20px` at the smallest breakpoint).
 
 ### Inputs / Fields
-- **Style:** Charcoal Alt fill, `1px` Graphite Border, `8px` radius (one step tighter than cards), `14px 16px` padding, white text, Steel-Grey-adjacent placeholder (`#484848`).
+- **Style:** Charcoal Alt fill, `1px` Graphite Border, `8px` radius (one step tighter than cards), `14px 16px` padding, white text, mid-grey placeholder (`#808080` — raised from an earlier `#484848` that measured 2.06:1 against the Charcoal Alt fill, well under the 4.5:1 AA floor; `#808080` clears 4.78:1).
 - **Focus:** Border shifts to Diagnostic Red and gains a soft red focus ring (`box-shadow: 0 0 0 3px rgba(224,30,36,0.1)`) — no border-width change, ring only.
 - **Labels:** Label typography (Bebas Neue, uppercase, `11px`, tracked, Steel Grey) sits above each field, never inline/floating.
 
