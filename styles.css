@@ -201,9 +201,12 @@ nav {
   top: var(--announce-h); left: 0; right: 0;
   z-index: 100;
   height: var(--nav-h);
-  background: rgba(10,10,10,0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  /* Fully opaque, not translucent-over-blur: a semi-transparent nav let whatever
+     scrolled underneath (hero photos, brand logos, lighter sections) bleed through
+     and shift its apparent color, which broke the logo's mix-blend-mode transparency
+     trick (blending against a moving target instead of one fixed near-black). Matches
+     the old rgba(10,10,10,0.92)'s resting appearance exactly, just constant now. */
+  background: #0a0a0a;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
