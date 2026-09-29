@@ -185,7 +185,7 @@ The palette is built from one signal color against a near-black neutral scale �
 - **Steel Grey** (`#9a9a9a`): Muted/secondary text — stat labels, descriptions, footer copy.
 - **Fog Grey** (`#cccccc`): Body copy that needs more presence than Steel Grey (hero subhead, about body, review quotes).
 
-Three functional one-offs sit outside this core palette, each locked to a single expected context: an amber `#f59e0b` for the 5-star rating glyphs (the color users expect from a star rating), WhatsApp's own brand green `#25d366` for the WhatsApp contact button, and the real UK number-plate colors (`#F5C518` yellow, `#003399` GB-strip blue, `#FFD700` star gold) for the contact page's Reg Plate field — a visitor expects that element to look like an actual number plate, not a themed one. None of these should spread beyond their one use.
+Two functional one-offs sit outside this core palette, each locked to a single expected context: an amber `#f59e0b` for the 5-star rating glyphs (the color users expect from a star rating), and the real UK number-plate colors (`#F5C518` yellow, `#003399` GB-strip blue, `#FFD700` star gold) for the contact page's Reg Plate field — a visitor expects that element to look like an actual number plate, not a themed one. Neither should spread beyond its one use.
 
 ### Named Rules
 **The Small-Text Red Rule.** `#e01e24` is for large/bold text and non-text surfaces (icons, borders, backgrounds, shadows) only. Any time red is the *color of small text* — a badge, an active nav state, a status value — use Diagnostic Red — Accessible (`#ff525a`) instead, so it clears 4.5:1 contrast on the near-black backgrounds.
@@ -255,7 +255,7 @@ The system is flat at rest — cards are distinguished from their background pur
 
 ## Shapes
 
-Two coexisting corner languages carry distinct meaning. Structural containers — cards, panels, image frames, badges, primary/outline buttons — use a consistent `10px` radius (`--radius`), giving the system a precise, machined-edge feel (precise and restrained, not soft). Small icon chips use slightly tighter or looser variants of the same family (`8px` for compact icon tiles, `12px` for larger service icons and the scroll-to-top button). Fully-rounded pill shapes (`50px` radius or `50%` circle) are reserved for a narrower set: the hero status badge, the footer's WhatsApp/phone contact buttons, and avatars — anything that reads as a tag, a contact affordance, or a person, rather than a content container.
+Two coexisting corner languages carry distinct meaning. Structural containers — cards, panels, image frames, badges, primary/outline buttons — use a consistent `10px` radius (`--radius`), giving the system a precise, machined-edge feel (precise and restrained, not soft). Small icon chips use slightly tighter or looser variants of the same family (`8px` for compact icon tiles, `12px` for larger service icons and the scroll-to-top button). Fully-rounded pill shapes (`50px` radius or `50%` circle) are reserved for a narrower set: the hero status badge, the footer's phone/email contact buttons, and avatars — anything that reads as a tag, a contact affordance, or a person, rather than a content container.
 
 ### Named Rules
 **The Container-vs-Pill Rule.** `10px` radius means "this holds content." Full-pill/circle radius means "this is a badge, a person, or a direct contact action." The two never swap roles.
@@ -269,7 +269,7 @@ Controls throughout are precise and restrained: sharp, deliberate hover feedback
 - **Primary:** Diagnostic Red fill, white text, `14px 32px` padding, Label typography (Bebas Neue, uppercase, tracked).
 - **Hover / Focus:** Fill darkens to Diagnostic Red — Deep; lifts `2px` (`translateY(-2px)`); gains the Red Glow shadow.
 - **Outline (secondary):** Transparent fill, `2px` white-at-20%-opacity border, white text; on hover the border and text both shift to Diagnostic Red and it lifts `2px` (no fill change — stays outline).
-- **Footer Pill CTAs (WhatsApp / Phone / Email):** The one place buttons take the pill shape (`50px` radius) instead of `10px` — a deliberate signal that these are direct-contact actions, not form submissions. WhatsApp and Phone are tinted toward their own brand/system color at low opacity at rest (WhatsApp green / Diagnostic Red) and fill solid on hover with a matching colored glow. Email has no brand color to carry, so it's neutral instead — white-at-6%-opacity at rest, filling solid white with dark text on hover — rather than inventing a third accent.
+- **Footer Pill CTAs (Phone / Email):** The one place buttons take the pill shape (`50px` radius) instead of `10px` — a deliberate signal that these are direct-contact actions, not form submissions. Phone is tinted Diagnostic Red at low opacity at rest and fills solid red with a matching glow on hover. Email has no brand color to carry, so it's neutral instead — white-at-6%-opacity at rest, filling solid white with dark text on hover — rather than inventing an accent for it.
 
 ### Cards / Containers
 - **Corner Style:** `10px` radius, consistently.
