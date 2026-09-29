@@ -1215,36 +1215,7 @@ footer {
   #scroll-top { right: 20px; bottom: 20px; }
 }
 
-/* ─── Reg Lookup ────────────────────────────────────────────── */
-#reg-lookup {
-  background: var(--bg-alt);
-  padding: var(--section-py) 0;
-  border-bottom: 1px solid var(--border);
-}
-.reg-lookup-inner {
-  max-width: 680px;
-  margin: 0 auto;
-  text-align: center;
-}
-.reg-lookup-inner h2 {
-  font-family: var(--font-head);
-  font-size: clamp(26px, 5vw, 40px);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-}
-.reg-lookup-inner > p {
-  color: var(--grey);
-  font-size: 15px;
-  margin-bottom: 36px;
-}
-.reg-form {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  align-items: stretch;
-}
+/* ─── UK Plate (shared: contact page's Reg Plate field) ──────── */
 .plate-wrap {
   display: flex;
   align-items: stretch;
@@ -1258,16 +1229,6 @@ footer {
 }
 .plate-wrap:focus-within {
   box-shadow: 0 0 0 1px #000, 0 0 0 4px rgba(var(--red-a11y-rgb), 0.55);
-}
-.plate-wrap.error {
-  box-shadow: 0 0 0 1px #000, 0 0 0 4px rgba(var(--red-rgb), 0.55);
-}
-.reg-error {
-  min-height: 1.2em;
-  margin-top: 10px;
-  font-size: 13px;
-  color: var(--red-a11y);
-  text-align: center;
 }
 .plate-flag {
   background: var(--plate-blue);
@@ -1300,121 +1261,9 @@ footer {
   text-align: center;
 }
 .plate-input::placeholder { color: rgba(0,0,0,0.28); letter-spacing: 5px; font-size: 26px; }
-.reg-btn {
-  background: var(--red);
-  color: var(--white);
-  border: none;
-  padding: 0 28px;
-  font-family: var(--font-head);
-  font-size: 15px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background var(--transition);
-  white-space: nowrap;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.reg-btn:hover:not(:disabled) { background: var(--red-dark); }
-.reg-btn:disabled { opacity: 0.65; cursor: not-allowed; }
-.reg-spinner {
-  width: 15px; height: 15px;
-  border: 2px solid rgba(255,255,255,0.35);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: reg-spin 0.7s linear infinite;
-  flex-shrink: 0;
-}
-@keyframes reg-spin { to { transform: rotate(360deg); } }
-.reg-result {
-  margin-top: 28px;
-  display: none;
-  text-align: left;
-}
-.reg-result.visible { display: block; animation: fadeUp 0.35s ease; }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-.reg-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.reg-card-header {
-  background: var(--red);
-  padding: 13px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.reg-card-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-head);
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #fff;
-}
-.reg-demo-tag {
-  font-family: var(--font-head);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #fff;
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 4px;
-  padding: 3px 8px;
-}
-.reg-plate-badge {
-  background: var(--plate-yellow);
-  color: #000;
-  font-family: 'Arial Black', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 3px;
-  padding: 4px 12px;
-  border-radius: 4px;
-  text-transform: uppercase;
-}
-.reg-row {
-  display: flex;
-  align-items: center;
-  padding: 13px 20px;
-  border-bottom: 1px solid var(--border);
-  gap: 16px;
-}
-.reg-row:last-child { border-bottom: none; }
-.reg-label {
-  font-family: var(--font-head);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--grey);
-  min-width: 130px;
-  flex-shrink: 0;
-}
-.reg-value { font-size: 14px; font-weight: 500; color: var(--grey-light); }
-.reg-value.warn { color: var(--red-a11y); font-weight: 600; }
-.reg-disclaimer {
-  margin-top: 14px;
-  font-size: 11.5px;
-  color: var(--grey);
-  text-align: center;
-}
 @media (max-width: 600px) {
-  .reg-form { flex-direction: column; }
   .plate-wrap { max-width: 100%; }
-  .reg-btn { justify-content: center; padding: 16px; }
   .plate-input { font-size: 24px; letter-spacing: 6px; }
-  .reg-label { min-width: 110px; font-size: 10px; }
 }
 
 /* ─── Brand Ribbon ─────────────────────────────────────────── */
