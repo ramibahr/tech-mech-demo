@@ -29,6 +29,12 @@
   --font-body:  'Work Sans', sans-serif;
   --transition: 0.3s ease;
   --section-py: 120px;
+  /* Top padding only for a page's lead section (About/Services/Gallery/Contact) — deliberately
+     smaller than --section-py. That token already stacks on top of body:not(.has-hero)'s own
+     header-clearance padding (announce-h + nav-h, ~112px, structurally required so content
+     isn't hidden under the fixed bars), so using --section-py for both made the visible gap
+     before the heading ~232px — most of that read as dead space, not breathing room. */
+  --section-pt: 60px;
 }
 
 html { scroll-behavior: smooth; }
@@ -466,7 +472,7 @@ nav {
 
 /* ─── About ─────────────────────────────────────────────── */
 #about {
-  padding: var(--section-py) 0;
+  padding: var(--section-pt) 0 var(--section-py);
   background: var(--bg-alt);
 }
 
@@ -565,7 +571,7 @@ nav {
 
 /* ─── Services ──────────────────────────────────────────── */
 #services {
-  padding: var(--section-py) 0;
+  padding: var(--section-pt) 0 var(--section-py);
   background: var(--bg);
 }
 
@@ -655,7 +661,7 @@ nav {
 
 /* ─── Gallery ───────────────────────────────────────────── */
 #gallery {
-  padding: var(--section-py) 0;
+  padding: var(--section-pt) 0 var(--section-py);
   background: var(--bg-alt);
 }
 
@@ -817,7 +823,7 @@ nav {
 
 /* ─── Contact ───────────────────────────────────────────── */
 #contact {
-  padding: var(--section-py) 0;
+  padding: var(--section-pt) 0 var(--section-py);
   background: var(--bg-alt);
 }
 
