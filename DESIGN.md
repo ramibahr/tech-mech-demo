@@ -106,12 +106,6 @@ typography:
     fontWeight: 700
     lineHeight: 1
     letterSpacing: "normal"
-  wordmark:
-    fontFamily: "Barlow Condensed, sans-serif"
-    fontSize: "15px"
-    fontWeight: 700
-    lineHeight: 1
-    letterSpacing: "-2px"
 rounded:
   sm: "8px"
   md: "10px"
@@ -168,7 +162,7 @@ No anti-reference has been confirmed yet; this system should keep favoring instr
 - Condensed, all-caps Bebas Neue for anything structural (headings, labels, nav, buttons)
 - Flat surfaces at rest; depth and red-tinted glow appear only as hover feedback
 - Generous, consistent 120px vertical section rhythm; tight, precise component padding
-- A dedicated logo typeface (Barlow Condensed) that never leaks into body UI
+- A raster logo mark (`tech-mech-logo.png`) rather than a styled-text wordmark, sized per-instance and scaled down on narrow viewports
 
 ## Colors
 
@@ -202,9 +196,8 @@ Three functional one-offs sit outside this core palette, each locked to a single
 
 **Display Font:** Bebas Neue (with sans-serif fallback) — free on Google Fonts, single regular weight only (no bold cut; see Named Rules below).
 **Body Font:** Work Sans (with sans-serif fallback), weights 300–600.
-**Wordmark Font:** Barlow Condensed — reserved exclusively for the logo mark; never used for headings, body, or UI labels.
 
-**Logo Lockup:** a bold italic `//` in a dedicated brand red (`--logo-red: #CC0000`, distinct from Diagnostic Red and locked to this component only), followed by "Tech-Mech" split across two baseline-aligned spans — "Tech" stacked above a `2px` `--logo-red` rule (`.logo-tech-col`, a flex-column-stretch pair, so the rule's width always tracks "Tech" specifically) sitting beside "-Mech" (`.logo-line1`, `align-items: flex-start` so the suffix reads as a continuation of the same word rather than a separate line) — with a tracked-out "Automotive" secondary line (`10px`, regular weight, full white) below, left-aligned under "Tech" rather than spanning the full "Tech-Mech" width. Identical in the nav and the footer.
+**Logo Mark:** a raster image (`tech-mech-logo.png` — `//` in brand red, italic "TECH-MECH" in white, a red rule under "TECH" only, "AUTOMOTIVE" tracked out beneath), not a styled-text wordmark — no dedicated logo typeface is loaded. `.site-logo` is set to a fixed `height: 50px` per instance (inline, matching both the nav and footer usage) and scales down to `36px` at the `600px` mobile breakpoint so it can't crowd the hamburger or overflow the nav row. Identical asset in the nav and the footer, both still wrapped in the `.logo-mark` link back to `index.html`.
 
 *Provenance note:* this pairing replaced an earlier Big Shoulders Display / Montserrat combination (itself a substitute for pbwl.uk's unlicensed Uncage/Gotham reference) on explicit direction — a deliberate creative choice, not a licensing workaround.
 
@@ -314,6 +307,5 @@ Home's hero background is a stack of full-bleed images (`.hero-slide`), one `.ac
 
 ### Don't:
 - **Don't** introduce a second accent color alongside Diagnostic Red — new emphasis needs earn red or don't get emphasis.
-- **Don't** use Barlow Condensed anywhere outside the logo wordmark.
 - **Don't** add resting shadows to cards or panels — depth is earned through interaction, not applied by default.
 - **Don't** give a content-holding container a pill or circular radius, or a badge/avatar a `10px` radius — the two corner languages must stay separate.

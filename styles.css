@@ -8,7 +8,6 @@
   --red-glow:   rgba(var(--red-rgb), 0.18);
   --red-a11y:   #ff525a; /* AA-safe (≥4.5:1) variant of --red for small text on dark backgrounds */
   --red-a11y-rgb: 255, 82, 90;
-  --logo-red:   #CC0000; /* brand-mark red, distinct from --red — locked to the logo lockup only */
   --bg:         #0d0d0d;
   --bg-card:    #171717;
   --bg-alt:     #111111;
@@ -27,7 +26,6 @@
   --nav-h:      76px;
   --radius:     10px;
   --font-head:  'Bebas Neue', sans-serif;
-  --font-logo:  'Barlow Condensed', sans-serif;
   --font-body:  'Work Sans', sans-serif;
   --transition: 0.3s ease;
   --section-py: 120px;
@@ -141,69 +139,18 @@ ul  { list-style: none; }
 .logo-mark {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
   background: transparent;
 }
 
-.logo-slash {
-  font-family: var(--font-logo);
-  font-size: 34px;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--logo-red);
-  line-height: 1;
-  letter-spacing: -2px;
-  flex-shrink: 0;
+/* Fixed height set inline per-instance; scaled down on narrow viewports
+   below so it can't crowd the hamburger or overflow the nav row. */
+.site-logo {
+  display: block;
+  width: auto;
 }
-
-.logo-text-wrap {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-  gap: 3px;
-}
-
-/* Row 1: "Tech" (with its own rule stacked under it) sits beside "-Mech",
-   both baseline-aligned at the top, so together they read as one word
-   "TECH-MECH" -- but the rule below only ever spans "Tech"'s own width,
-   never the suffix's. */
-.logo-line1 {
-  display: flex;
-  align-items: flex-start;
-}
-
-.logo-tech-col {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.logo-primary {
-  font-family: var(--font-logo);
-  font-size: 18px;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--white);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.logo-rule {
-  height: 2px;
-  width: 100%;
-  background: var(--logo-red);
-}
-
-.logo-secondary {
-  font-family: var(--font-logo);
-  font-size: 10px;
-  font-weight: 400;
-  color: var(--white);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  white-space: nowrap;
+@media (max-width: 600px) {
+  .site-logo { height: 36px !important; }
 }
 
 /* ─── Announce Bar ──────────────────────────────────────── */

@@ -161,13 +161,8 @@
       },
       {
         "rule": "design-system-font-size",
-        "value": "34px",
-        "createdAt": "2026-09-29T18:17:53.228Z"
-      },
-      {
-        "rule": "design-system-font-size",
-        "value": "18px",
-        "createdAt": "2026-09-29T18:17:53.290Z"
+        "value": "15px",
+        "createdAt": "2026-09-29T18:30:24.054Z"
       }
     ]
   }
