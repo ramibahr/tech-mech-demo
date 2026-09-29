@@ -581,21 +581,30 @@ nav {
   text-align: center;
 }
 
-/* Explicit column counts (not auto-fill) per spec: 4 at full desktop width,
-   stepping down through 3/2/1 rather than however many 280px cards happen to fit. */
+/* Flexbox, not CSS Grid: with 17 cards, a fixed column count always leaves an
+   incomplete last row somewhere (17 mod 4 = 1, mod 2 = 1) - CSS Grid has no
+   way to center just that row's leftover items, but flex-wrap treats each
+   row as its own line, so justify-content: center centers a short last row
+   as a group while having zero effect on rows that already fill the width
+   exactly (the calc() below sizes cards so a full row's gaps + cards sum to
+   exactly 100%, leaving no slack for centering to act on). flex-grow: 0 on
+   the cards keeps a lone orphan card at the normal card width instead of
+   stretching to fill the row. */
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 28px;
 }
+.service-card { flex: 0 1 calc(25% - 21px); }
 @media (max-width: 1100px) {
-  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .service-card { flex-basis: calc(33.333% - 18.667px); }
 }
 @media (max-width: 768px) {
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-card { flex-basis: calc(50% - 14px); }
 }
 @media (max-width: 600px) {
-  .services-grid { grid-template-columns: 1fr; }
+  .service-card { flex-basis: 100%; }
 }
 
 .service-card {
