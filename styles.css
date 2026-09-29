@@ -1012,6 +1012,12 @@ footer {
   flex-wrap: wrap;
 }
 
+.footer-address {
+  font-size: 13px;
+  color: var(--grey);
+  margin-top: 20px;
+}
+
 .footer-btn {
   display: inline-flex;
   align-items: center;
