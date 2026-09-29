@@ -600,23 +600,31 @@ nav {
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  /* Flexbox column, top-aligned: icon first, then title, then description,
+     stacking naturally rather than centered - a fixed min-height (not height,
+     so an unexpectedly long line still wraps instead of clipping) is what
+     actually keeps every card the same height regardless of text length. */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 240px;
 }
+/* Bottom accent line - visible at rest, not just a hover reveal. #CC0000 is a
+   deliberate one-off, explicitly specified distinct from --red/#e01e24 -
+   registered as a sanctioned ignore-value since the detector's regex fallback
+   can't parse that intent from a comment. */
 .service-card::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0;
   width: 100%; height: 3px;
-  background: var(--red);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.45s ease;
+  background: #CC0000;
 }
 .service-card:hover {
   border-color: rgba(var(--red-rgb),0.35);
-  transform: translateY(-6px);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(204,0,0,0.4);
 }
-.service-card:hover::after { transform: scaleX(1); }
 
 .service-icon {
   width: 52px; height: 52px;
@@ -626,6 +634,7 @@ nav {
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 20px;
   color: var(--red);
+  flex-shrink: 0;
 }
 .service-icon svg { width: 26px; height: 26px; }
 
@@ -635,6 +644,13 @@ nav {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.service-desc {
+  font-size: 14px;
+  color: var(--grey);
+  line-height: 1.7;
 }
 
 /* ─── Gallery ───────────────────────────────────────────── */

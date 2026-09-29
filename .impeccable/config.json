@@ -168,6 +168,16 @@
         "rule": "design-system-font",
         "value": "charles wright",
         "createdAt": "2026-09-29T19:18:15.852Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#cc0000",
+        "createdAt": "2026-09-29T20:57:02.999Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(204,0,0,0.4)",
+        "createdAt": "2026-09-29T20:57:03.066Z"
       }
     ]
   }
