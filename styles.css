@@ -600,86 +600,58 @@ nav {
   text-align: center;
 }
 
-/* Back to cards, curated down to 8 (a "top services" set, not the full menu),
-   so a plain 4/2/1 grid always fills complete rows - 8 divides evenly by
-   both 4 and 2, unlike the 17-card version this replaces, so there's no
-   orphan-row problem to solve here. 4 columns only from 1100px up (not the
-   768px a smaller-card version could get away with): these cards carry much
-   more internal padding, so they need more room per column before 4-across
-   gets cramped. */
+/* Compact utility grid, not a showcase one: 8 services curated down from the
+   full menu, name + small inline icon only, built to fit on one screen rather
+   than invite scrolling. 3 columns only above 960px (matching the sitewide
+   tablet breakpoint already used elsewhere) - below that, 2 columns all the
+   way down to the smallest phone, since a compact row has plenty of room at
+   2-up even at narrow widths and the brief explicitly wants 2, not 1, on
+   mobile. 8 doesn't divide evenly by 3 (a 3/3/2 last row), but unlike the
+   16-card version, a plain 2-short last row reads as normal in a dense
+   utility grid rather than a lone stranded card, so it's left as-is rather
+   than reaching for the flex-centering trick used earlier for a true orphan. */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
-@media (max-width: 1100px) {
+@media (max-width: 960px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .services-grid { grid-template-columns: 1fr; }
 }
 
 .service-card {
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border-bottom: 2px solid #CC0000; /* the same deliberate Services-section accent as before, not --red/#e01e24 - already documented in DESIGN.md and a sanctioned detector ignore-value. 2px, not 3-4px: at this card's 10px radius a thicker straight-edge border starts to visibly clash with the curve at the bottom corners. */
   border-radius: var(--radius);
-  padding: 44px 40px;
+  padding: 18px;
   transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  /* Flexbox column, top-aligned (icon, then title, then description) with a
-     shared min-height rather than sizing to its own content, so title/
-     description length differences don't produce a ragged grid - min-height
-     rather than height so a card that genuinely needs an extra wrapped line
-     still grows instead of clipping. */
+  /* Icon inline to the left of the name, not stacked above it - a single row,
+     vertically centered, rather than the taller icon-on-its-own-line cards
+     used previously. */
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 280px;
-}
-/* Bottom accent line, visible at rest (not a hover-only reveal). #CC0000 is
-   the same deliberate one-off used for this section's accent color, distinct
-   from --red/#e01e24 - already documented in DESIGN.md and a sanctioned
-   detector ignore-value. */
-.service-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 100%; height: 3px;
-  background: #CC0000;
+  align-items: center;
+  gap: 12px;
 }
 .service-card:hover {
-  border-color: rgba(var(--red-rgb),0.35);
   transform: translateY(-5px);
   box-shadow: 0 0 15px rgba(204,0,0,0.4);
 }
 
 .service-icon {
-  width: 56px; height: 56px;
-  background: var(--red-glow);
-  border: 1px solid rgba(var(--red-rgb),0.3);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 24px;
-  color: var(--red);
+  width: 18px; height: 18px;
+  color: #CC0000;
   flex-shrink: 0;
 }
-.service-icon svg { width: 28px; height: 28px; }
 
 .service-name {
-  font-family: var(--font-head);
-  font-size: 19px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  /* Work Sans, not the Bebas Neue Title-step treatment every earlier version
+     of this card used - explicitly "normal weight, not huge/bold" this time,
+     which calls for the body/reading font's own natural register rather than
+     structural-chrome styling turned down. */
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
   color: var(--white);
-  margin-bottom: 10px;
-}
-
-.service-desc {
-  font-size: 14px;
-  color: var(--grey);
-  line-height: 1.7;
 }
 
 /* ─── Gallery ───────────────────────────────────────────── */
