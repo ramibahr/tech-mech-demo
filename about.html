@@ -97,11 +97,14 @@
 
       <div class="about-image-col fade-in fade-in-d2">
         <div class="about-img-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=900&q=80"
-            srcset="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=900&q=80 900w"
-            sizes="(max-width: 960px) 100vw, 540px"
-            alt="Mechanic working on vehicle" loading="eager" fetchpriority="high" />
+          <picture>
+            <source type="image/webp" srcset="images/about-brake-caliper-600.webp 600w, images/about-brake-caliper-900.webp 900w" sizes="(max-width: 960px) 100vw, 540px" />
+            <img
+              src="images/about-brake-caliper-900.jpg"
+              srcset="images/about-brake-caliper-600.jpg 600w, images/about-brake-caliper-900.jpg 900w"
+              sizes="(max-width: 960px) 100vw, 540px"
+              alt="Close-up of an Audi ceramic brake disc and caliper serviced in our workshop" loading="eager" fetchpriority="high" />
+          </picture>
           <div class="about-img-badge">
             <div class="about-img-badge-num">100%</div>
             <div class="about-img-badge-label">Satisfaction Guarantee</div>
