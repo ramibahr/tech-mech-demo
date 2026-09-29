@@ -897,6 +897,15 @@ a.contact-detail:focus-visible { border-color: rgba(var(--red-rgb),0.35); outlin
   line-height: 1.6;
 }
 
+/* The global `a { color: inherit }` reset would otherwise make this mailto link
+   invisible against the surrounding grey copy. */
+.form-email-link {
+  color: var(--red-a11y);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.form-email-link:hover { color: var(--red); }
+
 .simplybook-note {
   display: flex;
   align-items: center;
@@ -1034,6 +1043,21 @@ footer {
   color: var(--white);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(var(--red-rgb),0.32);
+}
+
+/* Neutral rather than a third brand/accent color — WhatsApp and Call Us already carry
+   green/red, and email isn't a distinct "brand" the way those two channels are. */
+.btn-email {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.18);
+  color: var(--grey-light);
+}
+.btn-email:hover {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--bg-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,255,255,0.15);
 }
 
 .footer-col-title {

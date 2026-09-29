@@ -269,7 +269,7 @@ Controls throughout are precise and restrained: sharp, deliberate hover feedback
 - **Primary:** Diagnostic Red fill, white text, `14px 32px` padding, Label typography (Bebas Neue, uppercase, tracked).
 - **Hover / Focus:** Fill darkens to Diagnostic Red — Deep; lifts `2px` (`translateY(-2px)`); gains the Red Glow shadow.
 - **Outline (secondary):** Transparent fill, `2px` white-at-20%-opacity border, white text; on hover the border and text both shift to Diagnostic Red and it lifts `2px` (no fill change — stays outline).
-- **Footer Pill CTAs (WhatsApp / Phone):** The one place buttons take the pill shape (`50px` radius) instead of `10px` — a deliberate signal that these are direct-contact actions, not form submissions. Each is tinted toward its own brand color at low opacity at rest (WhatsApp green / Diagnostic Red) and fills solid on hover with a matching colored glow.
+- **Footer Pill CTAs (WhatsApp / Phone / Email):** The one place buttons take the pill shape (`50px` radius) instead of `10px` — a deliberate signal that these are direct-contact actions, not form submissions. WhatsApp and Phone are tinted toward their own brand/system color at low opacity at rest (WhatsApp green / Diagnostic Red) and fill solid on hover with a matching colored glow. Email has no brand color to carry, so it's neutral instead — white-at-6%-opacity at rest, filling solid white with dark text on hover — rather than inventing a third accent.
 
 ### Cards / Containers
 - **Corner Style:** `10px` radius, consistently.
