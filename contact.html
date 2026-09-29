@@ -132,35 +132,42 @@
       </div>
 
       <div class="contact-form-wrap fade-in fade-in-d2">
-        <h2 class="form-title">Send a Message</h2>
+        <h2 class="form-title">Send an Enquiry</h2>
         <p class="form-subtitle">Fill in the details below and we'll be in touch shortly, or email us directly at <a href="mailto:techmech.automotive.services@gmail.com" class="form-email-link">techmech.automotive.services@gmail.com</a>.</p>
 
-        <div class="simplybook-note">
-          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Online booking is coming soon
-        </div>
+        <form name="enquiry" method="POST" data-netlify="true" id="enquiry-form">
+          <input type="hidden" name="form-name" value="enquiry" />
 
-        <form id="booking-form">
           <div class="form-group">
-            <label for="name">Your Name</label>
+            <label for="name">Full Name</label>
             <input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" required />
           </div>
 
           <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="+44 7XXX XXX XXX" autocomplete="tel" required />
+            <label for="reg-plate">Reg Plate</label>
+            <input type="text" id="reg-plate" name="reg-plate" placeholder="AB12 CDE" required />
           </div>
 
           <div class="form-group">
-            <label for="message">Message</label>
+            <label for="mileage">Mileage</label>
+            <input type="number" id="mileage" name="mileage" placeholder="e.g. 45000" min="0" inputmode="numeric" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Comments / Message</label>
             <textarea id="message" name="message" placeholder="Tell us about your vehicle and what needs doing..." required></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary form-submit">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Send Message
+            Send Enquiry
           </button>
         </form>
+
+        <div id="enquiry-success" class="form-success" role="status" aria-live="polite">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <p>Thank you, we'll be in touch shortly!</p>
+        </div>
       </div>
 
     </div>

@@ -144,20 +144,35 @@ if (lightbox) {
   });
 }
 
-/* ── Form submit placeholder ── */
-const bookingForm = document.getElementById('booking-form');
-if (bookingForm) {
-  bookingForm.addEventListener('submit', (e) => {
+/* ── Enquiry form (Netlify Forms, submitted via fetch so the page never reloads) ── */
+const enquiryForm = document.getElementById('enquiry-form');
+if (enquiryForm) {
+  const enquirySuccess = document.getElementById('enquiry-success');
+  enquiryForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (!bookingForm.checkValidity()) {
-      bookingForm.reportValidity();
+    if (!enquiryForm.checkValidity()) {
+      enquiryForm.reportValidity();
       return;
     }
-    const btn = e.target.querySelector('.form-submit');
+    const btn = enquiryForm.querySelector('.form-submit');
     const orig = btn.innerHTML;
-    btn.innerHTML = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Message Sent`;
     btn.disabled = true;
-    setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; }, 3500);
+    btn.innerHTML = 'Sending…';
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(enquiryForm)).toString(),
+    })
+      .then(() => {
+        enquiryForm.hidden = true;
+        enquirySuccess.classList.add('is-visible');
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.innerHTML = orig;
+        alert("Something went wrong sending your enquiry — please try calling or emailing us instead.");
+      });
   });
 }
 
