@@ -164,6 +164,21 @@ ul  { list-style: none; }
   gap: 3px;
 }
 
+/* Row 1: "Tech" (with its own rule stacked under it) sits beside "-Mech",
+   both baseline-aligned at the top, so together they read as one word
+   "TECH-MECH" -- but the rule below only ever spans "Tech"'s own width,
+   never the suffix's. */
+.logo-line1 {
+  display: flex;
+  align-items: flex-start;
+}
+
+.logo-tech-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
 .logo-primary {
   font-family: var(--font-logo);
   font-size: 18px;
