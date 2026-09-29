@@ -311,7 +311,12 @@ nav {
   min-height: max(100svh, 620px);
   display: flex;
   align-items: center;
-  padding-top: calc(var(--announce-h) + var(--nav-h));
+  /* The announce-h + nav-h term alone only clears the fixed bars — it pushes content
+     down exactly far enough not to sit underneath them, which reads as the hero-badge
+     touching the navbar with zero visual gap (worst case: shorter viewports where this
+     section grows to fit its content rather than being vertically centered in extra
+     svh room). The +48px on top of that is real breathing room between the two. */
+  padding-top: calc(var(--announce-h) + var(--nav-h) + 48px);
   /* .hero-stats is absolutely positioned over the bottom of this section, not laid out
      in flow — on viewports where content height forces #hero to grow to fit it exactly
      (min-height's floor, not svh, wins), the centered .hero-content had no reserved
