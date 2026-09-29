@@ -46,6 +46,14 @@ body {
   font-size: 1rem;
   line-height: 1.65;
   overflow-x: hidden;
+  /* Long unbroken strings (the email address, mainly) have no space or hyphen
+     to wrap at, so on a narrow phone they force their container past the
+     viewport edge - overflow-x:hidden above only stops the resulting scroll
+     after the fact, it doesn't stop mobile browsers computing a wider layout
+     viewport from that overflow and rendering the whole page zoomed out (the
+     "random zoom" symptom), so this needs fixing at the source, not just
+     hidden downstream. */
+  overflow-wrap: break-word;
 }
 
 /* Pages without their own hero need clearance under the fixed announce bar + nav. */
@@ -196,9 +204,20 @@ ul  { list-style: none; }
   color: rgba(255,255,255,0.22);
 }
 @media (max-width: 600px) {
-  .announce-inner { font-size: 10px; }
-  .announce-sep { margin: 0 8px; }
-  .announce-hours { display: none; }
+  /* Stack into exactly 2 lines (phone, then hours) rather than hiding the hours
+     outright: flex-direction:column makes every direct child its own line, so
+     the "Mon–Sat ... | Sun: Closed" separator has to live *inside* .announce-hours
+     (not a sibling of it) to stay on the same line as the rest of that string —
+     only the outer separator (between the phone line and the hours line) is a
+     direct child of .announce-inner, so only it gets hidden here. */
+  .announce-inner {
+    flex-direction: column;
+    gap: 2px;
+    font-size: 11px;
+    line-height: 1.3;
+    white-space: normal;
+  }
+  .announce-inner > .announce-sep { display: none; }
 }
 
 /* ─── Nav ───────────────────────────────────────────────── */
@@ -750,7 +769,12 @@ nav {
 
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* min(300px, 100%), not a bare 300px: on a narrow phone the container can be
+     under 300px wide (e.g. 320px viewport minus 20px side padding = 280px), and
+     a bare minmax floor doesn't shrink for that - it forces the track (and the
+     whole page) to overflow horizontally instead. min() lets the floor drop to
+     100% of the available width there while staying 300px on anything wider. */
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 32px;
 }
 
@@ -1208,7 +1232,12 @@ footer {
 }
 
 @media (max-width: 600px) {
-  :root { --section-py: 72px; }
+  /* The announce bar wraps to 2 lines on mobile (see its own rule above), so it
+     needs more height here too - every consumer of --announce-h (nav's top
+     offset, the fixed-header-clearance padding on body/hero/mobile-menu, the
+     contact form's scroll-margin-top) reads this same variable, so overriding
+     it once here is enough; nothing needs updating individually. */
+  :root { --section-py: 72px; --announce-h: 52px; }
   .container { padding: 0 20px; }
   .contact-form-wrap { padding: 28px 20px; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
