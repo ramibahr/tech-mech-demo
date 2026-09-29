@@ -581,91 +581,42 @@ nav {
   text-align: center;
 }
 
-/* Flexbox, not CSS Grid: with 17 cards, a fixed column count always leaves an
-   incomplete last row somewhere (17 mod 4 = 1, mod 2 = 1) - CSS Grid has no
-   way to center just that row's leftover items, but flex-wrap treats each
-   row as its own line, so justify-content: center centers a short last row
-   as a group while having zero effect on rows that already fill the width
-   exactly (the calc() below sizes cards so a full row's gaps + cards sum to
-   exactly 100%, leaving no slack for centering to act on). flex-grow: 0 on
-   the cards keeps a lone orphan card at the normal card width instead of
-   stretching to fill the row. */
-.services-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 28px;
-}
-.service-card { flex: 0 1 calc(25% - 21px); }
-@media (max-width: 1100px) {
-  .service-card { flex-basis: calc(33.333% - 18.667px); }
+/* Two-column checklist, not cards: grid-template-columns rather than
+   column-count so it fills left-to-right/row-by-row (item 1 top-left, item 2
+   top-right, item 3 next row) instead of top-to-bottom-then-wrap - matches
+   how a visitor's eye naturally scans a two-column list. Collapses to one
+   column on mobile. No per-item background/border - "no cards, no boxes"
+   is the explicit brief here, a deliberate reversal of the previous version. */
+.services-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 60px;
 }
 @media (max-width: 768px) {
-  .service-card { flex-basis: calc(50% - 14px); }
-}
-@media (max-width: 600px) {
-  .service-card { flex-basis: 100%; }
+  .services-list { grid-template-columns: 1fr; }
 }
 
-.service-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px 28px;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  /* Flexbox column, top-aligned: icon first, then title, then description,
-     stacking naturally rather than centered - a fixed min-height (not height,
-     so an unexpectedly long line still wraps instead of clipping) is what
-     actually keeps every card the same height regardless of text length. */
+.service-row {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 240px;
-}
-/* Bottom accent line - visible at rest, not just a hover reveal. #CC0000 is a
-   deliberate one-off, explicitly specified distinct from --red/#e01e24 -
-   registered as a sanctioned ignore-value since the detector's regex fallback
-   can't parse that intent from a comment. */
-.service-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 100%; height: 3px;
-  background: #CC0000;
-}
-.service-card:hover {
-  border-color: rgba(var(--red-rgb),0.35);
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px rgba(204,0,0,0.4);
-}
-
-.service-icon {
-  width: 52px; height: 52px;
-  background: var(--red-glow);
-  border: 1px solid rgba(var(--red-rgb),0.3);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 20px;
-  color: var(--red);
-  flex-shrink: 0;
-}
-.service-icon svg { width: 26px; height: 26px; }
-
-.service-name {
+  align-items: center;
+  gap: 16px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
   font-family: var(--font-head);
   font-size: 19px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 8px;
+  color: var(--white);
 }
 
-.service-desc {
-  font-size: 14px;
-  color: var(--grey);
-  line-height: 1.7;
+/* #CC0000 is the same deliberate one-off already used (and documented in
+   DESIGN.md) for this section's accent color, distinct from --red/#e01e24. */
+.service-check {
+  width: 18px; height: 18px;
+  color: #CC0000;
+  flex-shrink: 0;
 }
 
 /* ─── Gallery ───────────────────────────────────────────── */
