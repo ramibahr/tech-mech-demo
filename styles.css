@@ -8,6 +8,7 @@
   --red-glow:   rgba(var(--red-rgb), 0.18);
   --red-a11y:   #ff525a; /* AA-safe (≥4.5:1) variant of --red for small text on dark backgrounds */
   --red-a11y-rgb: 255, 82, 90;
+  --logo-red:   #CC0000; /* brand-mark red, distinct from --red — locked to the logo lockup only */
   --bg:         #0d0d0d;
   --bg-card:    #171717;
   --bg-alt:     #111111;
@@ -147,9 +148,10 @@ ul  { list-style: none; }
 
 .logo-slash {
   font-family: var(--font-logo);
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
-  color: var(--red);
+  font-style: italic;
+  color: var(--logo-red);
   line-height: 1;
   letter-spacing: -2px;
   flex-shrink: 0;
@@ -159,27 +161,34 @@ ul  { list-style: none; }
   display: flex;
   flex-direction: column;
   line-height: 1;
-  gap: 2px;
+  gap: 3px;
 }
 
 .logo-primary {
   font-family: var(--font-logo);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   font-style: italic;
   color: var(--white);
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.logo-rule {
+  height: 2px;
+  width: 100%;
+  background: var(--logo-red);
 }
 
 .logo-secondary {
   font-family: var(--font-logo);
   font-size: 10px;
   font-weight: 400;
-  color: rgba(255,255,255,0.55);
+  color: var(--white);
   letter-spacing: 4px;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* ─── Announce Bar ──────────────────────────────────────── */

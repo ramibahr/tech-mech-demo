@@ -153,6 +153,21 @@
         ],
         "createdAt": "2026-08-31T16:04:18.088Z",
         "reason": "Agent: #lightbox-img is a JS-populated template target for the gallery lightbox — empty src/alt until a gallery item is activated, at which point JS sets both before the lightbox becomes visible. Never rendered empty."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#808080",
+        "createdAt": "2026-09-02T23:19:10.447Z"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "34px",
+        "createdAt": "2026-09-29T18:17:53.228Z"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "18px",
+        "createdAt": "2026-09-29T18:17:53.290Z"
       }
     ]
   }

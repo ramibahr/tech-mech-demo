@@ -202,7 +202,9 @@ Three functional one-offs sit outside this core palette, each locked to a single
 
 **Display Font:** Bebas Neue (with sans-serif fallback) — free on Google Fonts, single regular weight only (no bold cut; see Named Rules below).
 **Body Font:** Work Sans (with sans-serif fallback), weights 300–600.
-**Wordmark Font:** Barlow Condensed — reserved exclusively for the logo mark (italic primary line + tracked-out secondary line); never used for headings, body, or UI labels.
+**Wordmark Font:** Barlow Condensed — reserved exclusively for the logo mark; never used for headings, body, or UI labels.
+
+**Logo Lockup:** a four-piece mark — a bold italic `//` in a dedicated brand red (`--logo-red: #CC0000`, distinct from Diagnostic Red and locked to this component only), a bold italic "Tech-Mech" primary line (`18px`), a `2px` `--logo-red` rule sized to match the primary line's width (`.logo-rule`, a flex-column-stretch child of `.logo-text-wrap`), and a tracked-out "Automotive" secondary line (`10px`, regular weight, full white). Identical in the nav and the footer.
 
 *Provenance note:* this pairing replaced an earlier Big Shoulders Display / Montserrat combination (itself a substitute for pbwl.uk's unlicensed Uncage/Gotham reference) on explicit direction — a deliberate creative choice, not a licensing workaround.
 
