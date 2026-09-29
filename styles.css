@@ -581,42 +581,86 @@ nav {
   text-align: center;
 }
 
-/* Two-column checklist, not cards: grid-template-columns rather than
-   column-count so it fills left-to-right/row-by-row (item 1 top-left, item 2
-   top-right, item 3 next row) instead of top-to-bottom-then-wrap - matches
-   how a visitor's eye naturally scans a two-column list. Collapses to one
-   column on mobile. No per-item background/border - "no cards, no boxes"
-   is the explicit brief here, a deliberate reversal of the previous version. */
-.services-list {
-  list-style: none;
+/* Back to cards, curated down to 8 (a "top services" set, not the full menu),
+   so a plain 4/2/1 grid always fills complete rows - 8 divides evenly by
+   both 4 and 2, unlike the 17-card version this replaces, so there's no
+   orphan-row problem to solve here. 4 columns only from 1100px up (not the
+   768px a smaller-card version could get away with): these cards carry much
+   more internal padding, so they need more room per column before 4-across
+   gets cramped. */
+.services-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 60px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
 }
-@media (max-width: 768px) {
-  .services-list { grid-template-columns: 1fr; }
+@media (max-width: 1100px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
 }
 
-.service-row {
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 44px 40px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  /* Flexbox column, top-aligned (icon, then title, then description) with a
+     shared min-height rather than sizing to its own content, so title/
+     description length differences don't produce a ragged grid - min-height
+     rather than height so a card that genuinely needs an extra wrapped line
+     still grows instead of clipping. */
   display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 280px;
+}
+/* Bottom accent line, visible at rest (not a hover-only reveal). #CC0000 is
+   the same deliberate one-off used for this section's accent color, distinct
+   from --red/#e01e24 - already documented in DESIGN.md and a sanctioned
+   detector ignore-value. */
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: #CC0000;
+}
+.service-card:hover {
+  border-color: rgba(var(--red-rgb),0.35);
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(204,0,0,0.4);
+}
+
+.service-icon {
+  width: 56px; height: 56px;
+  background: var(--red-glow);
+  border: 1px solid rgba(var(--red-rgb),0.3);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+  color: var(--red);
+  flex-shrink: 0;
+}
+.service-icon svg { width: 28px; height: 28px; }
+
+.service-name {
   font-family: var(--font-head);
   font-size: 19px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--white);
+  margin-bottom: 10px;
 }
 
-/* #CC0000 is the same deliberate one-off already used (and documented in
-   DESIGN.md) for this section's accent color, distinct from --red/#e01e24. */
-.service-check {
-  width: 18px; height: 18px;
-  color: #CC0000;
-  flex-shrink: 0;
+.service-desc {
+  font-size: 14px;
+  color: var(--grey);
+  line-height: 1.7;
 }
 
 /* ─── Gallery ───────────────────────────────────────────── */
