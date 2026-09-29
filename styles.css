@@ -879,6 +879,10 @@ a.contact-detail:focus-visible { border-color: rgba(var(--red-rgb),0.35); outlin
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 44px 40px;
+  /* #enquiry-section is a same-page-navigation anchor target (the reviews "Enquire
+     Now" CTA jumps here) - without this, the fixed announce bar + nav would land
+     right on top of the card instead of just above it. */
+  scroll-margin-top: calc(var(--announce-h) + var(--nav-h) + 24px);
 }
 
 .form-title {
