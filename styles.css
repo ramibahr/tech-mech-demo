@@ -575,31 +575,28 @@ nav {
   text-align: center;
 }
 
-.services-group { margin-bottom: 40px; }
-.services-group:last-child { margin-bottom: 0; }
-.services-group-title {
-  font-family: var(--font-head);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--grey);
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-
+/* Explicit column counts (not auto-fill) per spec: 4 at full desktop width,
+   stepping down through 3/2/1 rather than however many 280px cards happen to fit. */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 28px;
+}
+@media (max-width: 1100px) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
 }
 
 .service-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 36px 30px;
+  padding: 32px 28px;
   transition: var(--transition);
   position: relative;
   overflow: hidden;
@@ -638,13 +635,6 @@ nav {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 10px;
-}
-
-.service-desc {
-  font-size: 14px;
-  color: var(--grey);
-  line-height: 1.7;
 }
 
 /* ─── Gallery ───────────────────────────────────────────── */

@@ -212,7 +212,7 @@ Two functional one-offs sit outside this core palette, each locked to a single e
 - **Title — Small** (600, 14px, line-height 1.2): About pillar titles, review-avatar initials — Title-family treatment at micro scale.
 - **Body — Large** (300, 17px, line-height 1.75): Hero subhead. Also reused, coincidentally at the same size, for the review-card star row.
 - **Body** (400, 16px, line-height 1.65): Primary paragraph copy — about body.
-- **Body — Small** (400, 14px, line-height 1.7): Secondary/supporting copy — service and contact descriptions, form subtitle and field text, footer tagline and links.
+- **Body — Small** (400, 14px, line-height 1.7): Secondary/supporting copy — contact descriptions, form subtitle and field text, footer tagline and links.
 - **Body — Extra Small** (400, 13px, line-height 1.6): Tertiary copy — about pillar descriptions, footer hours and copyright line.
 - **Label** (600, 12px, letter-spacing 1.5px, uppercase): Footer column titles.
 - **Label — Small** (500, 13px, letter-spacing 1.5px, uppercase): Nav links, footer pill buttons.
@@ -236,9 +236,9 @@ A centered `1160px` container holds every section, with side padding that steps 
 
 Section intro headers (Services, Gallery, Reviews) are centered and capped at `640px`, with a responsive gap to their grid (`clamp(48px, 6vw, 64px)`) — heading, then supporting copy, then content. Split layouts (About's text+image, Contact's info+form) keep their headers left-aligned inside their column instead, since they're introducing a paired layout rather than a full-width grid.
 
-Grids vary by content density: About is a locked `1fr 1fr` two-column split (`80px` gap); Services and Reviews use auto-fill/auto-fit responsive grids (`minmax(280–300px, 1fr)`, `28–32px` gap) so card count adapts to viewport; Gallery is a deliberate asymmetric 12-column mosaic (`20px` gap) rather than a uniform grid, giving the "shop tour" imagery a curated, non-repetitive feel; Contact splits `1fr 1.1fr` (`80px` gap), favoring the form slightly.
+Grids vary by content density: About is a locked `1fr 1fr` two-column split (`80px` gap); Reviews uses an auto-fill/auto-fit responsive grid (`minmax(280–300px, 1fr)`, `28–32px` gap) so card count adapts to viewport; Gallery is a deliberate asymmetric 12-column mosaic (`20px` gap) rather than a uniform grid, giving the "shop tour" imagery a curated, non-repetitive feel; Contact splits `1fr 1.1fr` (`80px` gap), favoring the form slightly.
 
-Services' 7 cards are split into 3 named subgroups (`.services-group`) — General & Diagnostics, Mechanical & Handling, Electrical & Bodywork — each with its own `.services-group-title` (Label — Small typography, a hairline `--border` bottom rule) above its own `.services-grid`, rather than one flat 7-card wall. This keeps any single visible group at 2-3 cards, matching the same ≤4-visible-options scanability standard the rest of the system already follows at decision points.
+Services' 15 cards are one flat `.services-grid` with explicit (not auto-fill) column counts, since the card count itself is now the point — 4 columns at full desktop width, stepping down to 3 (`≤1100px`), 2 (`≤768px`) and 1 (`≤600px`). Each card is icon + name only (no description paragraph): at 15 cards, a sentence or two per card the way the earlier 7-card set had would make the grid very tall and turn a scannable service menu into reading homework. The earlier version's 3 named subgroups (General & Diagnostics / Mechanical & Handling / Electrical & Bodywork) are gone along with the description copy — regrouping 15 items into a handful of subsections would be arbitrary at this count, where a flat, consistent grid is easier to scan.
 
 Responsive behavior collapses at three breakpoints: `960px` (nav becomes a hamburger drawer, two-column grids stack to one, the About portrait image is dropped rather than shrunk, section padding steps down to `96px`), `768px` (the gallery mosaic re-flows to a simpler stacked/paired layout), and `600px` (section padding steps down to `72px`, container padding to `20px`, and component padding tightens, e.g. the contact form panel drops from `44px 40px` to `28px 20px`).
 
