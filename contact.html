@@ -150,7 +150,13 @@
 
           <div class="form-group">
             <label for="reg-plate">Reg Plate</label>
-            <input type="text" id="reg-plate" name="reg-plate" placeholder="AB12 CDE" required />
+            <div class="plate-wrap">
+              <div class="plate-flag" aria-hidden="true">
+                <span class="flag-star">★</span>
+                <span class="flag-gb">GB</span>
+              </div>
+              <input class="plate-input" type="text" id="reg-plate" name="reg-plate" placeholder="AB12 CDE" maxlength="8" autocomplete="off" spellcheck="false" required />
+            </div>
           </div>
 
           <div class="form-group">

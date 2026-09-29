@@ -1269,7 +1269,10 @@ footer {
   background: var(--plate-yellow);
   border: none;
   outline: none;
-  font-family: 'Arial Black', 'Arial', sans-serif;
+  /* 'Charles Wright' is the real DVLA plate typeface; essentially no visitor has it
+     installed, so this is a no-cost authenticity attempt that falls straight through
+     to the Arial Black look the plate already shipped with. */
+  font-family: 'Charles Wright', 'Arial Black', 'Arial', monospace;
   font-size: 30px;
   font-weight: 900;
   letter-spacing: 8px;

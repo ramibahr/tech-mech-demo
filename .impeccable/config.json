@@ -163,6 +163,11 @@
         "rule": "design-system-font-size",
         "value": "15px",
         "createdAt": "2026-09-29T18:30:24.054Z"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "charles wright",
+        "createdAt": "2026-09-29T19:18:15.852Z"
       }
     ]
   }
