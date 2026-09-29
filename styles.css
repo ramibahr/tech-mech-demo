@@ -150,7 +150,7 @@ ul  { list-style: none; }
   width: auto;
 }
 @media (max-width: 600px) {
-  .site-logo { height: 36px !important; }
+  .site-logo { height: 26px !important; }
 }
 
 /* ─── Announce Bar ──────────────────────────────────────── */
