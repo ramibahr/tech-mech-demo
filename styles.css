@@ -312,6 +312,13 @@ nav {
   display: flex;
   align-items: center;
   padding-top: calc(var(--announce-h) + var(--nav-h));
+  /* .hero-stats is absolutely positioned over the bottom of this section, not laid out
+     in flow — on viewports where content height forces #hero to grow to fit it exactly
+     (min-height's floor, not svh, wins), the centered .hero-content had no reserved
+     clearance from that bottom edge, so hero-actions' buttons ran straight into the
+     stat bar. This padding is sized to the stat bar's own height (~105px, one row)
+     plus 80px of clear space above it. */
+  padding-bottom: 184px;
 }
 
 .hero-slideshow {
@@ -346,14 +353,6 @@ nav {
    40%-from-top anchor tuned for a wide desktop crop can end up off-subject. Bias higher. */
 @media (max-width: 600px) {
   .hero-slide { background-position: center 28%; }
-}
-
-/* Short viewports (phone landscape): the 620px floor plus the pinned stat bar
-   pushes primary content below the fold. Drop the floor and the decorative
-   stat bar so title/subhead/CTAs stay reachable without scrolling. */
-@media (max-height: 500px) {
-  #hero { min-height: 460px; }
-  .hero-stats { display: none; }
 }
 
 .hero-overlay {
@@ -1133,6 +1132,20 @@ footer {
   .gallery-item:nth-child(6) { grid-column: span 12; height: 190px; }
   .hero-stats { flex-wrap: wrap; }
   .hero-stat  { flex: 0 0 50%; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  /* Wrapping to 2 rows roughly doubles the stat bar's height, so the fixed clearance
+     set on #hero needs to grow to match or the buttons crowd it again here. */
+  #hero { padding-bottom: 288px; }
+}
+
+/* Short viewports (phone landscape): the 620px floor plus the pinned stat bar
+   pushes primary content below the fold. Drop the floor and the decorative
+   stat bar so title/subhead/CTAs stay reachable without scrolling.
+   Declared after the max-width:768px block (same specificity, cascade order
+   decides) since phone landscape matches both — this one must win there to
+   zero out the clearance the 768px rule reserves for a stat bar that's hidden. */
+@media (max-height: 500px) {
+  #hero { min-height: 460px; padding-bottom: 0; }
+  .hero-stats { display: none; }
 }
 
 @media (max-width: 600px) {
