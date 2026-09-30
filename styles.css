@@ -15,8 +15,10 @@
   --bg-ribbon:  #080808; /* brand ribbon strip */
   --bg-announce:#1a0809; /* announce bar (red-tinted near-black) */
   --border:     #242424;
-  /* UK number-plate convention colors — locked to the real-world plate design, not the app palette */
-  --plate-yellow: #F5C518;
+  /* UK number-plate convention colors — locked to this look, not the app palette.
+     --plate-yellow is the user's explicit choice (#FFC726), not the closest real
+     DVLA-plate yellow (#F5C518, used until this was requested a second time). */
+  --plate-yellow: #FFC726;
   --plate-blue:   #003399;
   --plate-gold:   #FFD700;
   --white:      #ffffff;
