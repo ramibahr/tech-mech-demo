@@ -56,6 +56,14 @@ body {
      "random zoom" symptom), so this needs fixing at the source, not just
      hidden downstream. */
   overflow-wrap: break-word;
+  /* While a custom font is loading, the browser renders text in the fallback
+     (sans-serif) at face value - from-font instead sizes that fallback text
+     using the *custom* font's own x-height/advance metrics once known, so body
+     copy doesn't visibly grow/shrink when the real font swaps in. Doesn't need
+     any hand-measured numbers; Firefox/Safari/Chromium all read this from the
+     font file itself. No effect (silently ignored) on a browser that doesn't
+     support the keyword - this is additive, not a dependency. */
+  font-size-adjust: from-font;
 }
 
 /* Pages without their own hero need clearance under the fixed announce bar + nav. */
@@ -111,7 +119,16 @@ ul  { list-style: none; }
   line-height: 1.08;
   text-transform: uppercase;
   letter-spacing: 1px;
+  /* Hidden until <html> gets .fonts-loaded (inline script in <head>, before the
+     stylesheet links) - Bebas Neue is far narrower than any fallback sans-serif,
+     so this heading visibly reflows/stretches if it's shown mid-swap. opacity,
+     not display/visibility: the heading's layout space stays reserved the whole
+     time, so nothing else on the page shifts when it fades in. The <noscript>
+     next to that script forces this back to visible for the no-JS case. */
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
+.fonts-loaded .section-title { opacity: 1; }
 .section-title span { color: var(--red); }
 
 .btn {
@@ -436,7 +453,11 @@ nav {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 32px;
+  /* Same font-swap reflow guard as .section-title - see that rule's comment. */
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
+.fonts-loaded .hero-title { opacity: 1; }
 .hero-title span { color: var(--red); }
 
 .hero-sub {

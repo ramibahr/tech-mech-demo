@@ -6,13 +6,34 @@
   <title>Tech-Mech | Technical &amp; Mechanical Automotive Services</title>
   <meta name="description" content="Tech-Mech: reliable automotive repair and maintenance, including engine diagnostics, brake services and general servicing. Transparent pricing, experienced mechanics." />
 
+  <!-- Marks <html> ready once the webfonts are actually usable, so CSS can hold back
+       just the handful of Bebas Neue headings that visibly reflow on a fallback-font
+       swap (see .fonts-loaded in styles.css) without touching anything else - ordinary
+       text still renders immediately via the font-display:swap below. Runs before the
+       stylesheet links on purpose. The setTimeout is a safety net: if document.fonts
+       somehow never settles, those headings still reveal themselves instead of
+       staying hidden forever. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      function markReady() { root.classList.add('fonts-loaded'); }
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(markReady, markReady);
+      } else {
+        markReady();
+      }
+      setTimeout(markReady, 400);
+    })();
+  </script>
+  <noscript><style>.section-title, .hero-title { opacity: 1 !important; }</style></noscript>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;500;600&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80" fetchpriority="high" />
+  <link rel="preload" as="image" href="images/hero-engine-bay-1600.webp" fetchpriority="high" />
   <script src="main.js" defer></script>
 </head>
 
