@@ -90,13 +90,13 @@ typography:
     letterSpacing: "1.5px"
   label-xs:
     fontFamily: "Bebas Neue, sans-serif"
-    fontSize: "11px"
+    fontSize: "12px"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "1.5px"
   label-2xs:
     fontFamily: "Bebas Neue, sans-serif"
-    fontSize: "10px"
+    fontSize: "12px"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "1.5px"
@@ -220,8 +220,8 @@ None of that fixes the gap Bebas Neue's extreme condensation opens: a generic sa
 - **Body — Extra Small** (400, 13px, line-height 1.6): Tertiary copy — about pillar descriptions, footer hours and copyright line.
 - **Label** (600, 12px, letter-spacing 1.5px, uppercase): Footer column titles.
 - **Label — Small** (500, 13px, letter-spacing 1.5px, uppercase): Nav links, footer pill buttons.
-- **Label — Extra Small** (600, 11px, letter-spacing 1.5px, uppercase): Hero badge, about-image badge label, form field labels.
-- **Label — 2XS** (600, 10px, letter-spacing 1.5px, uppercase): Logo secondary line, hero stat labels, contact detail labels, tightest mobile step of Label — Extra Small.
+- **Label — Extra Small** (600, 12px, letter-spacing 1.5px, uppercase): Hero badge, about-image badge label, form field labels. Raised from 11px — a legibility-floor pass closed every functional/UI text instance under 12px sitewide, so this step (and 2XS below) moved to match rather than stay a step below the new floor.
+- **Label — 2XS** (600, 12px, letter-spacing 1.5px, uppercase): Hero stat labels, contact detail labels. Raised from 10px for the same reason; now the same size as Label — Extra Small, distinguished only by context and (per-component) tighter tracking — not a true "smaller" step anymore, kept as a separate named entry since the two still serve different places in the system.
 - **Stat** (700, `2rem`, line-height 1, red): The hero stat-bar numbers and the about-image badge number — one shared step; these two contexts must always match. One stat value ("All Makes") is text rather than a digit and carries an explicit `text-transform: uppercase` for the same reason as review author names above.
 
 ### Named Rules
@@ -254,10 +254,12 @@ The system is flat at rest — cards are distinguished from their background pur
 
 ### Shadow Vocabulary
 - **Card Lift** (`box-shadow: 0 16px 48px rgba(0,0,0,0.35)` / `0 24px 60px rgba(0,0,0,0.45)`): Neutral diffuse shadow on card hover; pairs with the `translateY` lift and border tint.
-- **Red Glow** (`box-shadow: 0 8px 30px rgba(224,30,36,0.4)` / `0 4px 20px rgba(224,30,36,0.45)`): Colored glow reserved for primary CTAs and the scroll-to-top button — signals "the one thing to press."
+- **Red Glow** (`box-shadow: 0 Npx Mpx rgba(224,30,36,0.15)`, offset/blur varying slightly per component): Colored glow reserved for primary CTAs and the scroll-to-top button — signals "the one thing to press." Reduced from 0.32–0.45 opacity (a visual-polish pass; that strength read as cheap, especially on mobile) and, for the scroll-to-top button specifically, moved from a permanent resting shadow to hover-only — it was the one glow violating the Earned-Shadow Rule below, visible the entire time the button is on screen rather than earned by hovering it the way every other glow on the page already works.
 
 ### Named Rules
 **The Earned-Shadow Rule.** Nothing casts a shadow at rest. Shadows exist only as feedback for an action just taken (hover) or an action available (a primary control) — never as decoration.
+
+**Motion:** the hero badge's status dot (`.hero-badge::before`) pulses on a 3s `ease-in-out` cycle between full opacity and 0.6 (was 2s `linear`, opacity down to 0.4 *and* scaling up 50%) — a visual-polish pass found the faster, bigger original pulled the eye away from the headline sitting right next to it. Still disabled entirely under `prefers-reduced-motion: reduce`, same as the brand ribbon's marquee (`.brand-ribbon-track`, already `aria-hidden` and contained by `overflow: hidden` on its wrapper, so no layout/accessibility issue was found there beyond the motion preference, which was already wired up).
 
 ## Shapes
 
@@ -287,14 +289,16 @@ Controls throughout are precise and restrained: sharp, deliberate hover feedback
 ### Inputs / Fields
 - **Style:** Charcoal Alt fill, `1px` Graphite Border, `8px` radius (one step tighter than cards), `14px 16px` padding, white text, mid-grey placeholder (`#808080` — raised from an earlier `#484848` that measured 2.06:1 against the Charcoal Alt fill, well under the 4.5:1 AA floor; `#808080` clears 4.78:1).
 - **Focus:** Border shifts to Diagnostic Red and gains a soft red focus ring (`box-shadow: 0 0 0 3px rgba(224,30,36,0.1)`) — no border-width change, ring only.
-- **Labels:** Label typography (Bebas Neue, uppercase, `11px`, tracked, Steel Grey) sits above each field, never inline/floating.
+- **Labels:** Label typography (Bebas Neue, uppercase, `12px`, tracked, Steel Grey) sits above each field, never inline/floating.
 
 ### Navigation
 - **Style:** Fixed, solid `#0a0a0a` — sitting below a separate, darker announcement bar (`#1a0809`) that carries phone/hours info. Deliberately opaque rather than glassmorphic: a translucent nav over a blur let whatever scrolled underneath shift its apparent color, which broke the logo image's `mix-blend-mode: lighten` transparency trick (see Logo Mark below) by blending it against a moving target instead of one fixed near-black. Every page (Home, About, Services, Gallery, Contact) shares the identical nav; the logo always links back to `index.html`.
 - **Layout:** Three independent elements spread edge-to-edge across the header via `justify-content: space-between` — the logo flush left, the five page links (Home/About/Services/Gallery/Contact) as their own group, and the Enquire Now CTA flush right — so the header uses its full width instead of clustering everything toward one side. Below `1100px`, the link group and CTA both hide in favor of the hamburger, whose drawer repeats the same "Enquire Now" link. A second "Enquire Now" button repeats beneath the homepage's reviews grid (`.reviews-cta`), since the fixed nav's own CTA is unavailable across that same band and reviews is the page's highest-trust moment; unlike the nav's, it links to `contact.html#enquiry-section` rather than the bare page, jumping straight to the form card instead of the page top (`.contact-form-wrap`'s `scroll-margin-top` keeps that landing clear of the fixed header).
 - **Typography:** Label style (Bebas Neue, uppercase, tracked), `16px`/`1.75px` tracking, larger than the `13px` Label — Small role used elsewhere (footer pills), so the primary nav reads with the same visual weight as the logo wordmark and Enquire Now button rather than thinner than both. Links sit on a `44px` gap.
 - **States:** Links go from Steel/Fog Grey to Diagnostic Red on hover; the current page's link is the same Diagnostic Red, set via a small shared script that matches `location.pathname` against each link's `href` — no underline, no background change.
-- **Mobile:** Below `1100px` (widened from the original `960px` to give the 5-item nav room before crowding), the hamburger opens a full-screen overlay drawer (`rgba(10,10,10,0.98)`, `24px` backdrop blur) with large centered links and body scroll locked while open — a deliberate step up from a dropdown panel, matching the multi-page structure's own navigation pattern. The primary CTA link keeps its solid-button treatment inside the drawer; any link click closes it. The drawer reserves the fixed header's height as top padding (so links never render underneath the announcement bar/nav) and scrolls internally if content ever exceeds the viewport; below `500px` of viewport height (landscape phones) link padding and font-size tighten so the full menu fits without scrolling. Keyboard focus is trapped within the drawer while open (Tab/Shift+Tab cycles its own links rather than escaping to page content behind it), matching the same trap on the gallery lightbox. The announcement bar above it also adapts at `≤600px`: phone number and opening hours stack into two centered lines (`11px`, rather than being hidden) instead of the single `nowrap` row used everywhere else, so `--announce-h` itself grows to `52px` there — every consumer of that token (this drawer's own top padding included) reads the same variable, so nothing needed updating individually to stay clear of the taller bar.
+- **Mobile:** Below `1100px` (widened from the original `960px` to give the 5-item nav room before crowding), the hamburger opens a full-screen overlay drawer (`rgba(10,10,10,0.98)`, `24px` backdrop blur) with large centered links and body scroll locked while open — a deliberate step up from a dropdown panel, matching the multi-page structure's own navigation pattern. The primary CTA link keeps its solid-button treatment inside the drawer; any link click closes it. The drawer reserves the fixed header's height as top padding (so links never render underneath the announcement bar/nav) and scrolls internally if content ever exceeds the viewport; below `500px` of viewport height (landscape phones) link padding and font-size tighten so the full menu fits without scrolling. Keyboard focus is trapped within the drawer while open (Tab/Shift+Tab cycles its own links rather than escaping to page content behind it), matching the same trap on the gallery lightbox. The announcement bar above it also adapts at `≤600px`: phone number and opening hours stack into two centered lines (`12px`, rather than being hidden) instead of the single `nowrap` row used everywhere else, so `--announce-h` itself grows to `52px` there — every consumer of that token (this drawer's own top padding included) reads the same variable, so nothing needed updating individually to stay clear of the taller bar.
+
+The drawer's own CTA link had a real contrast bug worth noting: `.mobile-menu a`'s (0,1,1) specificity beat `.btn-primary`'s (0,1,0) color, so "Enquire Now" rendered grey-on-red at rest and red-a11y-on-red-dark on hover (3.0:1 and 2.2:1, both under the 4.5:1 floor) instead of white. Fixed with `:not(.btn)` on that rule and its `:hover` variant — the same guard the `.active` state variant already had, just not yet extended to the base and hover rules.
 
 ### Signature Component: Hero Stat Bar
 A full-width glass strip (`rgba(0,0,0,0.55)`, blurred) pinned to the bottom of the hero, divided into equal cells by hairline verticals. Each cell pairs a large Diagnostic Red display number (years experience, vehicles serviced, rating, coverage) with a tiny tracked-out grey label beneath — the system's most concentrated trust-signal moment, functioning like a dashboard readout rather than a typical stat-counter widget. Wraps to a 2×2 grid at `768px` and below; on short landscape viewports (`≤500px` tall) it's dropped entirely so the hero's title/CTA stay reachable without scrolling, since the `620px` height floor plus the pinned bar would otherwise push primary content below the fold. Because the bar is absolutely positioned over the hero rather than laid out in flow, `#hero` reserves `184px` of bottom padding (`288px` at the `768px` 2-row breakpoint) so the centered hero content never grows into it — that reserve is zeroed on the `≤500px`-tall breakpoint where the bar is hidden. Symmetrically at the top, `#hero`'s `padding-top` is `announce-h + nav-h` plus `48px`: the bare `announce-h + nav-h` term only clears the fixed bars (content starts exactly at their bottom edge, zero gap), so the extra `48px` is what actually separates the hero-badge from the navbar.

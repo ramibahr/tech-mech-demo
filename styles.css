@@ -154,7 +154,10 @@ ul  { list-style: none; }
 .btn-primary:hover {
   background: var(--red-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(var(--red-rgb),0.4);
+  /* Reduced from 0.4 - a blurred colour glow this strong reads as cheap, especially
+     on a small/bright mobile screen, and the lift + darker fill already carry the
+     hover feedback on their own. */
+  box-shadow: 0 8px 30px rgba(var(--red-rgb),0.15);
 }
 
 .btn-outline {
@@ -203,7 +206,7 @@ ul  { list-style: none; }
   display: flex;
   align-items: center;
   font-family: var(--font-body);
-  font-size: 11.5px;
+  font-size: 12px;
   color: rgba(255,255,255,0.72);
   white-space: nowrap;
   gap: 0;
@@ -232,7 +235,7 @@ ul  { list-style: none; }
   .announce-inner {
     flex-direction: column;
     gap: 2px;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.3;
     white-space: normal;
   }
@@ -324,7 +327,14 @@ nav {
   padding: calc(var(--announce-h) + var(--nav-h) + 16px) 16px 24px;
 }
 .mobile-menu.open { display: flex; }
-.mobile-menu a {
+/* :not(.btn) on every variant here, not just .active below: without it, this rule's
+   (0,1,1) specificity beats .btn-primary's (0,1,0) color, so the mobile-menu's
+   "Enquire Now" link rendered grey-on-red at rest and red-a11y-on-red-dark on
+   hover (2.2-3.0:1 contrast, both well under the 4.5:1 floor) instead of the
+   white .btn-primary is supposed to give it. .btn already carries its own
+   complete font-family/size/weight/tracking/transform, so excluding it here
+   loses nothing. */
+.mobile-menu a:not(.btn) {
   font-family: var(--font-head);
   font-size: 22px;
   font-weight: 500;
@@ -334,7 +344,7 @@ nav {
   padding: 14px 28px;
   transition: color var(--transition);
 }
-.mobile-menu a:hover { color: var(--red-a11y); }
+.mobile-menu a:not(.btn):hover { color: var(--red-a11y); }
 .mobile-menu a.active:not(.btn) { color: var(--red-a11y); }
 .mobile-menu .btn { margin-top: 12px; flex-shrink: 0; padding: 18px 44px; font-size: 19px; }
 
@@ -426,7 +436,7 @@ nav {
   border-radius: 50px;
   padding: 8px 18px;
   font-family: var(--font-head);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--red-a11y);
@@ -438,11 +448,14 @@ nav {
   width: 7px; height: 7px;
   border-radius: 50%;
   background: var(--red);
-  animation: blink 2s infinite;
+  /* Slowed from 2s to 3s and narrowed to a plain opacity fade (no scale change,
+     a narrower range) - the original's fast blink-and-grow drew the eye away
+     from the headline right next to it. */
+  animation: blink 3s ease-in-out infinite;
 }
 @keyframes blink {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.4; transform: scale(1.5); }
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
 }
 
 .hero-title {
@@ -505,7 +518,7 @@ nav {
   text-transform: uppercase;
 }
 .hero-stat-label {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--grey);
@@ -582,7 +595,7 @@ nav {
   line-height: 1;
 }
 .about-img-badge-label {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--grey);
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -877,7 +890,7 @@ a.contact-detail:focus-visible { border-color: rgba(var(--red-rgb),0.35); outlin
 .contact-detail-icon svg { width: 17px; height: 17px; }
 
 .contact-detail-label {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--grey);
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -932,7 +945,7 @@ a.contact-detail:focus-visible { border-color: rgba(var(--red-rgb),0.35); outlin
 }
 
 .form-group label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -1075,7 +1088,7 @@ footer {
   border-color: var(--red);
   color: var(--white);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(var(--red-rgb),0.32);
+  box-shadow: 0 8px 24px rgba(var(--red-rgb),0.15); /* reduced from 0.32, same reasoning as .btn-primary:hover */
 }
 
 /* Neutral rather than an accent color — Call Us already carries red, and email
@@ -1163,10 +1176,14 @@ footer {
   transform: translateY(16px);
   transition: var(--transition);
   border: none;
-  box-shadow: 0 4px 20px rgba(var(--red-rgb),0.45);
 }
 #scroll-top.visible { opacity: 1; transform: translateY(0); }
-#scroll-top:hover   { background: var(--red-dark); transform: translateY(-3px); }
+/* Glow moved here from the base rule (and reduced from 0.45), rather than just
+   dimmed in place: a shadow on this button at rest - not just on hover - was
+   already a real violation of the Earned-Shadow Rule documented below (shadows
+   are feedback for an action, not decoration), on top of being the strongest
+   glow on the page. Hover is where .btn-primary/.btn-phone earn theirs too. */
+#scroll-top:hover   { background: var(--red-dark); transform: translateY(-3px); box-shadow: 0 4px 20px rgba(var(--red-rgb),0.15); }
 #scroll-top svg     { width: 20px; height: 20px; color: white; }
 
 /* ─── Responsive ────────────────────────────────────────── */
@@ -1255,7 +1272,7 @@ footer {
   flex-shrink: 0;
 }
 .flag-star { font-size: 7px; color: var(--plate-gold); line-height: 1; }
-.flag-gb   { font-family: var(--font-head); font-size: 11px; font-weight: 700; color: #fff; letter-spacing: 0.5px; }
+.flag-gb   { font-family: var(--font-head); font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 0.5px; }
 .plate-input {
   flex: 1;
   background: var(--plate-yellow);
