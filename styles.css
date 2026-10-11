@@ -671,6 +671,12 @@ nav {
 .gallery-item:nth-child(4) { grid-column: span 4; height: 260px; }
 .gallery-item:nth-child(5) { grid-column: span 4; height: 260px; }
 .gallery-item:nth-child(6) { grid-column: span 12; height: 260px; }
+/* Repeats the 3-equal-columns-then-full-width-banner rhythm of items 3-6
+   for the next 4, rather than inventing a new shape. */
+.gallery-item:nth-child(7) { grid-column: span 4; height: 260px; }
+.gallery-item:nth-child(8) { grid-column: span 4; height: 260px; }
+.gallery-item:nth-child(9) { grid-column: span 4; height: 260px; }
+.gallery-item:nth-child(10) { grid-column: span 12; height: 260px; }
 
 .gallery-overlay {
   position: absolute;
@@ -1165,6 +1171,10 @@ footer {
   .gallery-item:nth-child(4) { grid-column: span 6;  height: 190px; }
   .gallery-item:nth-child(5) { grid-column: span 12; height: 190px; }
   .gallery-item:nth-child(6) { grid-column: span 12; height: 190px; }
+  .gallery-item:nth-child(7),
+  .gallery-item:nth-child(8) { grid-column: span 6;  height: 190px; }
+  .gallery-item:nth-child(9) { grid-column: span 12; height: 190px; }
+  .gallery-item:nth-child(10) { grid-column: span 12; height: 190px; }
   .hero-stats { flex-wrap: wrap; }
   .hero-stat  { flex: 0 0 50%; border-bottom: 1px solid rgba(255,255,255,0.06); }
   /* Wrapping to 2 rows roughly doubles the stat bar's height, so the fixed clearance
