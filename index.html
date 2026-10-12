@@ -6,28 +6,12 @@
   <title>Tech-Mech | Technical &amp; Mechanical Automotive Services</title>
   <meta name="description" content="Tech-Mech: reliable automotive repair and maintenance, including engine diagnostics, brake services and general servicing. Transparent pricing, experienced mechanics." />
 
-  <!-- Hides the handful of Bebas Neue headings that visibly reflow on a fallback-font
-       swap the instant they would otherwise paint - inline and placed before any
-       script or stylesheet so there is no gap between first paint and this rule
-       applying (an external stylesheet, even a fast one, loads too late to prevent
-       the flash). The script below only ever adds fonts-loaded once fonts are
-       actually usable (see .fonts-loaded in styles.css), which is the single trigger
-       that reveals them; the setTimeout is a safety net so they still reveal
-       themselves even if document.fonts never settles. -->
-  <style>.section-title, .hero-title { opacity: 0; }</style>
-  <script>
-    (function () {
-      var root = document.documentElement;
-      function markReady() { root.classList.add('fonts-loaded'); }
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(markReady, markReady);
-      } else {
-        markReady();
-      }
-      setTimeout(markReady, 400);
-    })();
-  </script>
-  <noscript><style>.section-title, .hero-title { opacity: 1 !important; }</style></noscript>
+  <!-- styles.css still holds .section-title/.hero-title at opacity:0 until <html>
+       gets a fonts-loaded class, for the other pages that still add it via their own
+       inline script. index.html no longer runs that script, so this override keeps
+       both headings visible here instead of being hidden forever with no way to
+       reveal them. -->
+  <style>.section-title, .hero-title { opacity: 1 !important; }</style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
