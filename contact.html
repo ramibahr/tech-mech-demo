@@ -1,33 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>html { opacity: 0; }</style>
+  <noscript><style>html { opacity: 1; }</style></noscript>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Contact | Tech-Mech</title>
   <meta name="description" content="Tech-Mech: reliable automotive repair and maintenance, including engine diagnostics, brake services and general servicing. Transparent pricing, experienced mechanics." />
-
-  <!-- Hides the handful of Bebas Neue headings that visibly reflow on a fallback-font
-       swap the instant they would otherwise paint - inline and placed before any
-       script or stylesheet so there is no gap between first paint and this rule
-       applying (an external stylesheet, even a fast one, loads too late to prevent
-       the flash). The script below only ever adds fonts-loaded once fonts are
-       actually usable (see .fonts-loaded in styles.css), which is the single trigger
-       that reveals them; the setTimeout is a safety net so they still reveal
-       themselves even if document.fonts never settles. -->
-  <style>.section-title, .hero-title { opacity: 0; }</style>
-  <script>
-    (function () {
-      var root = document.documentElement;
-      function markReady() { root.classList.add('fonts-loaded'); }
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(markReady, markReady);
-      } else {
-        markReady();
-      }
-      setTimeout(markReady, 400);
-    })();
-  </script>
-  <noscript><style>.section-title, .hero-title { opacity: 1 !important; }</style></noscript>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +36,7 @@
     <div class="nav-inner">
 
       <a href="index.html" class="logo-mark">
-        <img src="tech-mech-logo.png" alt="Tech-Mech Automotive" class="site-logo" style="height: 35px; mix-blend-mode: lighten;">
+        <img src="tech-mech-logo.png" width="645" height="140" alt="Tech-Mech Automotive" class="site-logo" style="height: 35px; mix-blend-mode: lighten;">
       </a>
 
       <ul class="nav-links">
@@ -203,7 +182,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html" class="logo-mark" style="display:inline-flex; margin-bottom: 20px;">
-          <img src="tech-mech-logo.png" alt="Tech-Mech Automotive" class="site-logo" style="height: 35px; mix-blend-mode: lighten;">
+          <img src="tech-mech-logo.png" width="645" height="140" alt="Tech-Mech Automotive" class="site-logo" style="height: 35px; mix-blend-mode: lighten;">
         </a>
         <p class="footer-tagline">Your trusted local garage for general maintenance, engine diagnostics, brakes, suspension, transmission, electrics and bodywork. Honest work at fair prices, guaranteed.</p>
         <div class="footer-contact-btns">
@@ -255,5 +234,6 @@
   <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
+<script>document.documentElement.style.opacity = '1';</script>
 </body>
 </html>

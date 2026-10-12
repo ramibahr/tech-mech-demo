@@ -119,17 +119,7 @@ ul  { list-style: none; }
   line-height: 1.08;
   text-transform: uppercase;
   letter-spacing: 1px;
-  /* Hidden from first paint via an inline <style> in <head> (before this stylesheet
-     even loads) - Bebas Neue is far narrower than any fallback sans-serif, so this
-     heading visibly reflows/stretches if it's shown mid-swap. opacity, not
-     display/visibility: the heading's layout space stays reserved the whole time,
-     so nothing else on the page shifts when it fades in. This rule just keeps that
-     same opacity:0 in effect once the stylesheet does load. The <noscript> next to
-     that inline style forces this back to visible for the no-JS case. */
-  opacity: 0;
-  transition: opacity 0.15s ease;
 }
-.fonts-loaded .section-title { opacity: 1; }
 .section-title span { color: var(--red); }
 
 .btn {
@@ -467,11 +457,7 @@ nav {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 32px;
-  /* Same font-swap reflow guard as .section-title - see that rule's comment. */
-  opacity: 0;
-  transition: opacity 0.15s ease;
 }
-.fonts-loaded .hero-title { opacity: 1; }
 .hero-title span { color: var(--red); }
 
 .hero-sub {
