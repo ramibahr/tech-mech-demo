@@ -265,7 +265,7 @@ nav {
 
 .nav-links a {
   font-family: var(--font-head);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: 1.75px;
   text-transform: uppercase;
@@ -427,7 +427,7 @@ nav {
   border-radius: 50px;
   padding: 8px 18px;
   font-family: var(--font-head);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--red-a11y);
@@ -473,6 +473,12 @@ nav {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+}
+/* Scoped here rather than on the shared .btn rule, which the nav's Enquire Now
+   link and the contact form's submit button also use - this only bumps the two
+   hero buttons. */
+.hero-actions .btn {
+  font-size: 16px;
 }
 
 .hero-stats {
