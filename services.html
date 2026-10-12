@@ -6,13 +6,15 @@
   <title>Services | Tech-Mech</title>
   <meta name="description" content="Tech-Mech: reliable automotive repair and maintenance, including engine diagnostics, brake services and general servicing. Transparent pricing, experienced mechanics." />
 
-  <!-- Marks <html> ready once the webfonts are actually usable, so CSS can hold back
-       just the handful of Bebas Neue headings that visibly reflow on a fallback-font
-       swap (see .fonts-loaded in styles.css) without touching anything else - ordinary
-       text still renders immediately via the font-display:swap below. Runs before the
-       stylesheet links on purpose. The setTimeout is a safety net: if document.fonts
-       somehow never settles, those headings still reveal themselves instead of
-       staying hidden forever. -->
+  <!-- Hides the handful of Bebas Neue headings that visibly reflow on a fallback-font
+       swap the instant they would otherwise paint - inline and placed before any
+       script or stylesheet so there is no gap between first paint and this rule
+       applying (an external stylesheet, even a fast one, loads too late to prevent
+       the flash). The script below only ever adds fonts-loaded once fonts are
+       actually usable (see .fonts-loaded in styles.css), which is the single trigger
+       that reveals them; the setTimeout is a safety net so they still reveal
+       themselves even if document.fonts never settles. -->
+  <style>.section-title, .hero-title { opacity: 0; }</style>
   <script>
     (function () {
       var root = document.documentElement;
